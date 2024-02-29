@@ -1,3 +1,12 @@
+:root {
+    --background-color1: #ffffff;
+    --background-color2: #eeeeee;
+    --foreground-color1: #000000;
+    --foreground-color2: #222222;
+    --primary-color:     #6156ff;
+    --secondary-color:   #eeff56;
+}
+
 /* Mobile first queries */
 
 /* Larger than mobile */
