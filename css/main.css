@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
 :root {
     --background-color1: #ffffff;
     --background-color2: #eeeeee;
@@ -7,19 +9,54 @@
     --secondary-color:   #eeff56;
 }
 
+* {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+    font-variation-settings: "slnt" 0;
+}
+
 /* Mobile first queries */
+body {
+    margin: 0;
+}
+a {
+    text-decoration: none;
+    color: var(--foreground-color1);
+}
 
 /* Larger than mobile */
-@media (min-width: 400px) {}
+@media (min-width: 400px) {
+
+    
+
+}
 
 /* Larger than phablet */
-@media (min-width: 550px) {}
+@media (min-width: 550px) {
+
+
+
+}
 
 /* Larger than tablet */
-@media (min-width: 750px) {}
+@media (min-width: 750px) {
+
+
+
+}
 
 /* Larger than desktop */
-@media (min-width: 1000px) {}
+@media (min-width: 1000px) {
+
+
+
+}
 
 /* Larger than Desktop HD */
-@media (min-width: 1200px) {}
+@media (min-width: 1200px) {
+
+
+
+}

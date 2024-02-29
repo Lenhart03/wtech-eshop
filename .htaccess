@@ -1,3 +1,6 @@
 RewriteEngine on
 
 RewriteRule ^$ /php/pages/index.php [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ /php/pages/$1.php [NC,L]
