@@ -1,0 +1,67 @@
+#navbar {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr;
+    gap: 20px;
+    padding: 0px 100px;
+    padding-top: 20px;
+}
+
+#navbar #logo {
+}
+
+#navbar .content-right {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    font-size: 16px;
+}
+#cart-button, #admin-button {
+    width: 45px;
+    height: 45px;
+}
+#cart-button span, #admin-button span {
+    font-size: 180%;
+}
+#login-button {
+    background-color: var(--secondary-color);
+    color: var(--background-color1);
+}
+#logout-button {
+    background-color: var(--secondary-color);
+    color: var(--background-color1);
+}
+#register-button {
+    background-color: var(--primary-color);
+    color: var(--background-color1);
+}
+#user-full-name {
+    height: 45px;
+    display: flex;
+    align-items: center;
+}
+
+#login-button:hover, #logout-button:hover, #register-button:hover {
+    background-color: var(--background-color1);
+    color: var(--foreground-color1);
+}
+
+#searchbar input {
+    width: 100%;
+    height: 60px;
+    padding: 0 25px;
+    outline: none;
+    margin-left: 0;
+    margin-right: 0;
+    background-color: #E0E0E0;
+    color: var(--foreground-color1);
+    border-radius: 30px;
+    border: none;
+    font-size: 18px;
+    margin-right: 100px;
+    min-width: 65px;
+}
+
+#breadcrumbs {
+    font-size: 32px;
+    margin-top: 20px;
+}

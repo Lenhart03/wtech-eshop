@@ -1,0 +1,29 @@
+#menu {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-left: 110px;
+    margin-top: 80px;
+}
+
+.group {
+}
+.group #label {
+    font-size: 24px;
+    line-height: 29px;
+    margin-bottom: 8px;
+    display: block;
+}
+.group #items {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    width: 160px;
+}
+.group #items a {
+    margin-left: 30px;
+    font-size: 21px;
+    font-weight: 280;
+    line-height: 29px;
+    display: block;
+}

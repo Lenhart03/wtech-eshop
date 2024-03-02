@@ -3,10 +3,14 @@
 :root {
     --background-color1: #ffffff;
     --background-color2: #eeeeee;
+    --background-color3: #cccccc;
+    
     --foreground-color1: #000000;
     --foreground-color2: #222222;
-    --primary-color:     #6156ff;
-    --secondary-color:   #eeff56;
+    --foreground-color3: #444444;
+
+    --primary-color:     #3D3D3D;
+    --secondary-color:   #909090;
 }
 
 * {
@@ -20,10 +24,71 @@
 /* Mobile first queries */
 body {
     margin: 0;
+    overflow-x: hidden;
 }
 a {
     text-decoration: none;
     color: var(--foreground-color1);
+}
+a:hover, a:focus {
+    text-decoration: none;
+    color: auto;
+}
+.content-right {
+    display: flex;
+    justify-content: right;
+}
+.content-center {
+    display: flex;
+    justify-content: right;
+}
+
+.button {
+    border-radius: 23px;
+    height: 45px;
+    padding: 0px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 300ms;
+    font-weight: 600;
+    user-select: none;
+}
+.button:hover {
+    box-shadow: 0px 2px 40px #888888aa;
+}
+
+input[type=submit] {
+    border: none;
+}
+
+
+#content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#errors {
+    position: absolute;
+    width: 100%;
+    left: auto;
+    right: auto;
+    padding-top: 20px;
+}
+
+
+::-webkit-scrollbar {
+    width: 11px;
+    position: absolute;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--background-color3);
+    border-radius: 6px;
+    border: 2px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
 }
 
 /* Larger than mobile */

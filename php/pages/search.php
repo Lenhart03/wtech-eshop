@@ -3,7 +3,7 @@
 <head>
     <?php include($_SERVER['DOCUMENT_ROOT']."/php/logic/head.php"); ?>
     <link rel="stylesheet" href="/css/pages/contact.css">
-    <title> - pcpartshop.sk</title>
+    <title><?php if (array_key_exists("key", $_GET)) echo $_GET["key"]; ?> - pcpartshop.sk</title>
 </head>
 <body>
     <?php include($_SERVER['DOCUMENT_ROOT']."/php/components/navbar.php"); ?>
