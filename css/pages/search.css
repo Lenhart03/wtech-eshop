@@ -1,5 +1,14 @@
 #content {
-    align-items: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 20px;
+    align-items: center;
+    overflow: scroll;
+}
+
+#content .container {
+    overflow: scroll;
 }
 
 #search-results {

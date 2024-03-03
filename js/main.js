@@ -12,4 +12,5 @@ function add_to_cart(product_id, count) {
         cart.push({"product_id": product_id, "count": count});
     }
     localStorage.setItem("cart_products", JSON.stringify(cart));
+    document.querySelector("#items-in-cart").innerHTML = Number(document.querySelector("#items-in-cart").innerHTML) + Number(count);
 }

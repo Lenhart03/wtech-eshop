@@ -86,7 +86,7 @@
 $(document).ready(function(){
   $('[data-toggle="tooltip"]').tooltip();   
 });
-const cart = JSON.parse(localStorage.getItem("cart_products"));
+let cart = JSON.parse(localStorage.getItem("cart_products"));
 if (cart) {
     let items_in_cart = 0;
     for (const item of cart)

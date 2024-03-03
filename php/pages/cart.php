@@ -57,12 +57,12 @@
                 }
             }
 
-            const cart_element = document.querySelector("#cart-items");
-            const cart_products = JSON.parse(localStorage.getItem("cart_products"));
+            let cart_element = document.querySelector("#cart-items");
+            let cart_products = JSON.parse(localStorage.getItem("cart_products"));
             if (cart_products)
             {
                 let list = [];
-                for (const cart_product of cart_products) {
+                for (let cart_product of cart_products) {
                     list.push(cart_product);
                 }
                 get_product_one_by_one_recusively(list);
