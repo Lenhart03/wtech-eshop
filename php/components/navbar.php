@@ -20,9 +20,11 @@
         echo "<div>";
         if (!$adminpage)
         {
+            $key = "";
+            if (array_key_exists("key", $_GET)) $key = $_GET["key"];
             echo "
                 <form action=\"/search\" id=\"searchbar\" method=\"GET\">
-                    <input name=\"key\" placeholder=\"Vyhľadávanie\" />
+                    <input name=\"key\" placeholder=\"Vyhľadávanie\" required value=\"$key\" />
                 </form>";
         }
         else if ($isuseradmin)
@@ -54,10 +56,11 @@
             // admin
             if ($isuseradmin) echo "<a href=\"/admin\" id=\"admin-button\" class=\"button\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Admin\"><span class=\"material-symbols-outlined\">engineering</span></a>";
             // cart
-            echo
-                "<a href=\"/cart\" id=\"cart-button\" class=\"button\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Košík\">
-                    <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0\" />
+            echo "
+                <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0\" />
+                <a href=\"/cart\" id=\"cart-button\" class=\"button\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Košík\">
                     <span class=\"material-symbols-outlined\">shopping_cart</span>
+                    <span id=\"items-in-cart\" style=\"position:absolute; font-size: 16px; min-width: 45px; text-align: center; margin-top: -40px;\"></span>
                 </a>";
             // user name
             echo "<div id=\"user-full-name\">$userfullname</div>";
@@ -83,4 +86,11 @@
 $(document).ready(function(){
   $('[data-toggle="tooltip"]').tooltip();   
 });
+const cart = JSON.parse(localStorage.getItem("cart_products"));
+if (cart) {
+    let items_in_cart = 0;
+    for (const item of cart)
+        items_in_cart += item.count
+    document.querySelector("#items-in-cart").innerHTML = items_in_cart;
+}
 </script>

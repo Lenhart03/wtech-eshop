@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: 1fr 2fr 2fr;
     gap: 20px;
-    padding: 0px 100px;
+    padding: 0px 5vw;
     padding-top: 20px;
 }
 
@@ -19,7 +19,7 @@
     width: 45px;
     height: 45px;
 }
-#cart-button span, #admin-button span {
+#cart-button > span, #admin-button > span {
     font-size: 180%;
 }
 #login-button {
@@ -56,7 +56,7 @@
     color: var(--foreground-color1);
     border-radius: 30px;
     border: none;
-    font-size: 18px;
+    font-size: 16px;
     margin-right: 100px;
     min-width: 65px;
 }
@@ -64,4 +64,11 @@
 #breadcrumbs {
     font-size: 32px;
     margin-top: 20px;
+}
+
+#cart-button #items-in-cart {
+    transition: 300ms;
+}
+#cart-button:hover #items-in-cart {
+    opacity: 0%;
 }

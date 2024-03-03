@@ -2,7 +2,7 @@
 <html>
 <head>
     <?php include($_SERVER['DOCUMENT_ROOT']."/php/logic/head.php"); ?>
-    <link rel="stylesheet" href="/css/pages/contact.css">
+    <link rel="stylesheet" href="/css/pages/order.css">
     <title>Doprava - pcpartshop.sk</title>
 </head>
 <body>

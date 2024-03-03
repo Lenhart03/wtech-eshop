@@ -11,6 +11,8 @@
 
     --primary-color:     #3D3D3D;
     --secondary-color:   #909090;
+
+    --important-color: #D66262;
 }
 
 * {
@@ -61,12 +63,23 @@ a:hover, a:focus {
 input[type=submit] {
     border: none;
 }
+input[type=number] {
+    text-align: center;
+    width: 50px;
+    height: 22px;
+    outline: none;
+    border: none;
+    border-radius: 11px;
+    background-color: var(--background-color1);
+}
 
 
 #content {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 50px 0;
+    padding-bottom: 0px;
 }
 #errors {
     position: absolute;
@@ -75,6 +88,7 @@ input[type=submit] {
     right: auto;
     padding-top: 20px;
 }
+
 
 
 ::-webkit-scrollbar {
