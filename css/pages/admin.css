@@ -1,3 +1,10 @@
+:root {
+    --order-new-color:       #D6DFFF;
+    --order-prepared-color:  #E0CDEA;
+    --order-sent-color:      #F3E5D0;
+    --order-delivered-color: #D7F3C6;
+}
+
 #menu {
     display: flex;
     flex-direction: column;
@@ -7,7 +14,7 @@
 }
 
 .group {
-    width: 160px;
+    width: 185px;
 }
 .group #label {
     font-size: 24px;
@@ -26,4 +33,73 @@
     font-weight: 280;
     line-height: 29px;
     display: block;
+}
+
+.order-state-new, .order-state-prepared, .order-state-sent, .order-state-delivered {
+    color: var(--foreground-color1);
+    margin: auto;
+    height: 30px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.order-state-new {
+    background-color: var(--order-new-color);
+    width: 65px;
+}
+.order-state-prepared {
+    background-color: var(--order-prepared-color);
+    width: 105px;
+}
+.order-state-sent {
+    background-color: var(--order-sent-color);
+    width: 100px;
+}
+.order-state-delivered {
+    background-color: var(--order-delivered-color);
+    width: 100px;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 16px;
+}
+thead th {
+    border-bottom: 2px solid var(--foreground-color1);
+    background-color: var(--background-color1);
+    position: sticky;
+    top: 0;
+}
+tr {
+    height: 50px;
+}
+tr td {
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px;
+    border-style: solid;
+    border-color: var(--foreground-color1);
+}
+th, td:nth-child(1), td:nth-child(3), td:nth-child(4), td:nth-child(5), td:nth-child(6) {
+    text-align: center;
+    align-content: center;
+}
+
+td:nth-child(1) {
+    padding: 0 10px;
+}
+
+#add-product-button {
+    background-color: var(--foreground-color1);
+    color: var(--background-color1);
+    cursor: pointer;
+}
+#add-product-button:hover {
+    background-color: var(--background-color1);
+    color: var(--foreground-color1);
 }

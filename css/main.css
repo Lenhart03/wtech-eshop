@@ -59,6 +59,10 @@ a:hover, a:focus {
 .button:hover {
     box-shadow: 0px 2px 40px #888888aa;
 }
+.button:active {
+    transition: none;
+    filter: brightness(80%);
+}
 
 input[type=submit] {
     border: none;
