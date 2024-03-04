@@ -42,9 +42,10 @@
         {
             // cart
             echo "
-                <a href=\"/cart\" id=\"cart-button\" class=\"button\">
-                    <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0\" />
+                <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0\" />
+                <a href=\"/cart\" id=\"cart-button\" class=\"button\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Košík\">
                     <span class=\"material-symbols-outlined\">shopping_cart</span>
+                    <span id=\"items-in-cart\" style=\"position:absolute; font-size: 16px; min-width: 45px; text-align: center; margin-top: -40px;\">0</span>
                 </a>";
             // login
             echo "<a href=\"/login\" id=\"login-button\" class=\"button\">Prihlásiť</a>";
@@ -60,7 +61,7 @@
                 <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0\" />
                 <a href=\"/cart\" id=\"cart-button\" class=\"button\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Košík\">
                     <span class=\"material-symbols-outlined\">shopping_cart</span>
-                    <span id=\"items-in-cart\" style=\"position:absolute; font-size: 16px; min-width: 45px; text-align: center; margin-top: -40px;\"></span>
+                    <span id=\"items-in-cart\" style=\"position:absolute; font-size: 16px; min-width: 45px; text-align: center; margin-top: -40px;\">0</span>
                 </a>";
             // user name
             echo "<div id=\"user-full-name\">$userfullname</div>";
@@ -84,7 +85,7 @@
 </div>
 <script>
 $(document).ready(function(){
-  $('[data-toggle="tooltip"]').tooltip();   
+    $('[data-toggle="tooltip"]').tooltip();   
 });
 let cart = JSON.parse(localStorage.getItem("cart_products"));
 if (cart) {
