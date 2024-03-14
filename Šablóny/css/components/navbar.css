@@ -1,0 +1,81 @@
+#navbar {
+    display: grid;
+    grid-template-columns: 2fr 4fr 1fr 1fr 1fr;
+    gap: 20px;
+    padding: 0px 5vw;
+    padding-top: 20px;
+}
+
+#navbar #logo {
+}
+
+#navbar .content-right {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    font-size: 16px;
+}
+#cart-button, #admin-button {
+    width: 45px;
+    height: 45px;
+    justify-self: end;
+}
+
+#cart-button > span, #admin-button > span {
+    font-size: 180%;
+}
+#login-button {
+    width: 100px;
+    background-color: var(--secondary-color);
+    color: var(--background-color1);
+    justify-self: center;
+}
+#logout-button {
+    background-color: var(--secondary-color);
+    color: var(--background-color1);
+}
+#register-button {
+    width: 120px;
+    background-color: var(--primary-color);
+    color: var(--background-color1);
+    justify-self: center;
+}
+#user-full-name {
+    height: 45px;
+    display: flex;
+    align-items: center;
+}
+
+#login-button:hover, #logout-button:hover, #register-button:hover {
+    background-color: var(--background-color1);
+    color: var(--foreground-color1);
+}
+
+#searchbar input {
+    width: 90%;
+    height: 60px;
+    padding: 0 25px;
+    outline: none;
+    margin-left: 0;
+    margin-right: 0;
+    background-color: #E0E0E0;
+    color: var(--foreground-color1);
+    border-radius: 30px;
+    border: none;
+    font-size: 16px;
+    margin-right: 100px;
+    min-width: 65px;
+    justify-self: start;
+}
+
+#breadcrumbs {
+    font-size: 32px;
+    margin-top: 20px;
+}
+
+#cart-button #items-in-cart {
+    transition: 300ms;
+}
+#cart-button:hover #items-in-cart {
+    opacity: 0%;
+}
