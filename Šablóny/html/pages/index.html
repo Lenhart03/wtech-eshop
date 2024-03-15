@@ -8,11 +8,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="/js/main.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" href="/Šablóny/css/main.css">
+    <link rel="stylesheet" href="/Šablóny/css/pages/index.css">
+    <link rel="stylesheet" href="/Šablóny/css/components/navbar.css">
 </head>
 
 <body>
-    <link rel="stylesheet" href="/Šablóny/css/components/navbar.css">
     <div id="navbar">
         <div id="logo">
             <a href="/Šablóny/html/pages/index.html"><img src="/res/images/logo.png" alt=""></a>
@@ -26,7 +29,7 @@
         
         <a href="/cart" id="cart-button" class="button" data-toggle="tooltip" data-placement="bottom" title="Košík">
             <span class="material-symbols-outlined">shopping_cart</span>
-            <span id="items-in-cart" style="position:absolute; font-size: 16px; min-width: 45px; text-align: center; margin-top: -40px;">0</span>
+            <span id="items-in-cart" style="position:absolute; font-size: 16px; min-width: 45px; text-align: center; margin-right: 40px;">0</span>
         </a>
 
         <a href="/login" id="login-button" class="button">Prihlásiť</a>
@@ -34,9 +37,153 @@
 
     </div>
 
+    <div class="kategorie">
+        <a href="/products" id="procesory" class="btn">Procesory</a>
+        <a href="/products" id="zakladne_dosky" class="btn">Základné dosky</a>
+        <a href="/products" id="disky" class="btn">Disky</a>
+        <a href="/products" id="skrine" class="btn">Skrine</a>
+        <a href="/products" id="ram" class="btn">RAM</a>
+        <a href="/products" id="graficke_karty" class="btn">Grafické karty</a>
+        <a href="/products" id="zdroje" class="btn">Zdroje</a>
+        <a href="/products" id="chladice" class="btn">Chladiče</a>
+    </div>
 
-    <div style="height: 100vh;" id="content">
+    <div id="featured">
+        <ul class="cards">
+            <li class="cards_item">
+                <div class="card">
+                    <div class="card_image"><img src="/Šablóny/placoholders/file.svg"></div>
+                    <div class="card_content">
+                        <div class="title_and_button">
+                            <h2 class="card_title">AKCIA</h2>
+                            <button class="btn card_btn">Kúpiť</button>
+                        </div>
+                        <h3 class="card_price">CENA</h3>
+                        <p class="card_text">Popis akcie</p>
+                    </div>
+                </div>
+            </li>
+    </div>
 
+    <div id="products">
+        <ul class="cards_products">
+            <li class="cards_item">
+                <div class="card">
+                    <div class="card_image"><img src="/Šablóny/placoholders/file.svg"></div>
+                    <div class="card_content">
+                        <div class="title_and_button">
+                            <h2 class="card_price">Názov produktu</h2>
+                            <button class="btn card_btn">Kúpiť</button>
+                        </div>
+                        <h3 class="card_price">CENA</h3>
+                        <p class="card_text">Popis produktu</p>
+                    </div>
+                </div>
+            </li>
+            <li class="cards_item">
+                <div class="card">
+                    <div class="card_image"><img src="/Šablóny/placoholders/file.svg"></div>
+                    <div class="card_content">
+                        <div class="title_and_button">
+                            <h2 class="card_price">Názov produktu</h2>
+                            <button class="btn card_btn">Kúpiť</button>
+                        </div>
+                        <h3 class="card_price">CENA</h3>
+                        <p class="card_text">Popis produktu</p>
+                    </div>
+                </div>
+            </li>
+            <li class="cards_item">
+                <div class="card">
+                    <div class="card_image"><img src="/Šablóny/placoholders/file.svg"></div>
+                    <div class="card_content">
+                        <div class="title_and_button">
+                            <h2 class="card_price">Názov produktu</h2>
+                            <button class="btn card_btn">Kúpiť</button>
+                        </div>
+                        <h3 class="card_price">CENA</h3>
+                        <p class="card_text">Popis produktu</p>
+                    </div>
+                </div>
+            </li>
+            <li class="cards_item">
+                <div class="card">
+                    <div class="card_image"><img src="/Šablóny/placoholders/file.svg"></div>
+                    <div class="card_content">
+                        <div class="title_and_button">
+                            <h2 class="card_price">Názov produktu</h2>
+                            <button class="btn card_btn">Kúpiť</button>
+                        </div>
+                        <h3 class="card_price">CENA</h3>
+                        <p class="card_text">Popis produktu</p>
+                    </div>
+                </div>
+            </li>
+            <li class="cards_item">
+                <div class="card">
+                    <div class="card_image"><img src="/Šablóny/placoholders/file.svg"></div>
+                    <div class="card_content">
+                        <div class="title_and_button">
+                            <h2 class="card_price">Názov produktu</h2>
+                            <button class="btn card_btn">Kúpiť</button>
+                        </div>
+                        <h3 class="card_price">CENA</h3>
+                        <p class="card_text">Popis produktu</p>
+                    </div>
+                </div>
+            </li>
+            <li class="cards_item">
+                <div class="card">
+                    <div class="card_image"><img src="/Šablóny/placoholders/file.svg"></div>
+                    <div class="card_content">
+                        <div class="title_and_button">
+                            <h2 class="card_price">Názov produktu</h2>
+                            <button class="btn card_btn">Kúpiť</button>
+                        </div>
+                        <h3 class="card_price">CENA</h3>
+                        <p class="card_text">Popis produktu</p>
+                    </div>
+                </div>
+            </li>
+            <li class="cards_item">
+                <div class="card">
+                    <div class="card_image"><img src="/Šablóny/placoholders/file.svg"></div>
+                    <div class="card_content">
+                        <div class="title_and_button">
+                            <h2 class="card_price">Názov produktu</h2>
+                            <button class="btn card_btn">Kúpiť</button>
+                        </div>
+                        <h3 class="card_price">CENA</h3>
+                        <p class="card_text">Popis produktu</p>
+                    </div>
+                </div>
+            </li>
+            <li class="cards_item">
+                <div class="card">
+                    <div class="card_image"><img src="/Šablóny/placoholders/file.svg"></div>
+                    <div class="card_content">
+                        <div class="title_and_button">
+                            <h2 class="card_price">Názov produktu</h2>
+                            <button class="btn card_btn">Kúpiť</button>
+                        </div>
+                        <h3 class="card_price">CENA</h3>
+                        <p class="card_text">Popis produktu</p>
+                    </div>
+                </div>
+            </li>
+            <li class="cards_item">
+                <div class="card">
+                    <div class="card_image"><img src="/Šablóny/placoholders/file.svg"></div>
+                    <div class="card_content">
+                        <div class="title_and_button">
+                            <h2 class="card_price">Názov produktu</h2>
+                            <button class="btn card_btn">Kúpiť</button>
+                        </div>
+                        <h3 class="card_price">CENA</h3>
+                        <p class="card_text">Popis produktu</p>
+                    </div>
+                </div>
+            </li>
     </div>
 
 </body>

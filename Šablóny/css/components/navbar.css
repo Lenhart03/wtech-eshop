@@ -1,9 +1,9 @@
 #navbar {
     display: grid;
     grid-template-columns: 2fr 4fr 1fr 1fr 1fr;
-    gap: 20px;
+    gap: 5%;
     padding: 0px 5vw;
-    padding-top: 20px;
+    padding-top: 1%;
 }
 
 #navbar #logo {
@@ -12,12 +12,12 @@
 #navbar .content-right {
     display: flex;
     flex-direction: row;
-    gap: 25px;
-    font-size: 16px;
+    gap: 10%;
+    font-size: 5%;
 }
 #cart-button, #admin-button {
-    width: 45px;
-    height: 45px;
+    width: 30%;
+    height: 72%;
     justify-self: end;
 }
 
@@ -25,7 +25,7 @@
     font-size: 180%;
 }
 #login-button {
-    width: 100px;
+    width: 100%;
     background-color: var(--secondary-color);
     color: var(--background-color1);
     justify-self: center;
@@ -35,7 +35,7 @@
     color: var(--background-color1);
 }
 #register-button {
-    width: 120px;
+    width: 100%;
     background-color: var(--primary-color);
     color: var(--background-color1);
     justify-self: center;
@@ -52,7 +52,7 @@
 }
 
 #searchbar input {
-    width: 90%;
+    width: 100%;
     height: 60px;
     padding: 0 25px;
     outline: none;
@@ -78,4 +78,38 @@
 }
 #cart-button:hover #items-in-cart {
     opacity: 0%;
+}
+
+
+@media screen and (max-width: 600px) {
+    #navbar {
+        grid-template-columns: 1fr;
+        padding: 5px;
+    }
+
+    #navbar .content-right {
+        flex-direction: column;
+        font-size: 3%;
+    }
+
+    #cart-button, #admin-button {
+        width: 100%;
+        height: auto;
+    }
+
+    #login-button, #register-button {
+        width: 100%;
+    }
+
+    #searchbar input {
+        width: 100%;
+        height: 40px;
+        font-size: 12px;
+        margin-right: 0;
+    }
+
+    #breadcrumbs {
+        font-size: 24px;
+    }
+
 }
