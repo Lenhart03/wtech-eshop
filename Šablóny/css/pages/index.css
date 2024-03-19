@@ -36,7 +36,6 @@ img {
 
 .cards {
     height: 1m;
-    width: 50%;
     display: flex;
     flex-wrap: wrap;
     list-style: none;
@@ -60,6 +59,7 @@ img {
     flex-direction: column;
     overflow: hidden;
     height: 20m;
+    word-wrap: normal;
 }
 
 .card_content {
@@ -71,7 +71,8 @@ img {
     height: 100%;
 }
 
-.title_and_button {
+.price_and_button {
+    font-size: 1.2rem;
     display: flex;
     justify-content: space-between;
 }
@@ -79,7 +80,7 @@ img {
 .card_title {
   color: #ffffff;
   width: 30%;
-  font-size: 2.1rem;
+  font-size: 1.8em;
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: capitalize;
@@ -89,7 +90,7 @@ img {
 .card_price {
     color: #ffffff;
     width: 30%;
-    font-size: 1.8rem;
+    font-size: 1.5em;
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: capitalize;
@@ -99,100 +100,61 @@ img {
 .card_text {
   color: #ffffff;
   width: 30%;
-  font-size: 1.3rem;
+  font-size: 1.5em;
   line-height: 1.5;
   margin-bottom: 1.25rem;    
   font-weight: 400;
 }
 
-.kategorie {
-    width: 50%;
-    margin: 5% auto;
-    margin-bottom: 0%;
-    justify-content: center;
-    display: grid;
-    align-items: center;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 20px;
-    padding: 0px 5%;
-    padding-top: 100m;
-}
 
 .cards_products {
-    display: grid;
-    width: 70%;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    gap: 20px; /* adjust this value to add space between the cards */
+    width: 100%;
+    gap: 20px;
     list-style: none;
     margin: 0 auto;
     padding: 0;
-    justify-items: center; /* center the items horizontally */
-    align-items: center; /* center the items vertically */
+    justify-items: center;
+    align-items: center;
 }
 
+.cards-action {
+    width: 700px;
+}
 
-@media screen and (max-width: 375px) {
-    .kategorie {
+.pagination{
+    margin: 20px auto;
+}
+.page-link{
+    color: #ffffff;
+    background-color: #555555;
+}
+
+@media (max-width: 700px) {
+    .card_title {
+        font-size: 1.5em;
+    }
+    .card_price {
+        font-size: 1em;
+    }
+    .card_text {
+        font-size: 1em;
+    }
+    .cards-action{
         width: 100%;
     }
 }
 
-@media screen and (max-width: 375px) {
-    #featured {
-        width: fit-content;
+
+@media (max-width: 300px) {
+    .card_title {
+        font-size: 1em;
+    }
+    .card_price {
+        font-size: 1em;
+    }
+    .card_text {
+        font-size: 0.5em;
     }
 }
 
-.kategorie-button {
-    display: flex;
-    flex-direction: row;
-    margin: 0 auto;
-    width: 100%;
-    height: 30%;
-    gap: 5%;
-    padding: 15%;
-    border-radius: 10px;
-    background-color: var(--secondary-color);
-    color: var(--background-color1);
-    white-space: nowrap;
-    font-size: 14px;
-    
-}
 
-
-
-
-
-@media screen and (max-width: 600px) {
-    .btn {
-        width: 100%;
-    }
-    .card_btn {
-        width: 50%;
-    }
-
-    .cards {
-        width: 100%;
-    }
-
-    .card {
-        height: auto;
-    }
-
-    .kategorie {
-        grid-template-columns: 1fr 1fr;
-        width: 100%;
-        padding-top: 50px;
-    }
-
-    .kategorie-button {
-        flex-direction: column;
-        height: auto;
-    }
-    .cards_products {
-        grid-template-columns: 1fr;
-        width: 100%;
-    }
-}

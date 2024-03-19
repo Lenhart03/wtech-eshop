@@ -1,20 +1,22 @@
-#navbar {
-    display: grid;
-    grid-template-columns: 2fr 4fr 1fr 1fr 1fr;
-    gap: 5%;
-    padding: 0px 5vw;
-    padding-top: 1%;
+.logo {
+    width: 200px;
+    height: auto;
+    justify-self: right;
 }
 
-#navbar #logo {
+
+
+.container-navbar :nth-child(1) {
+    margin-right: 5%;
 }
 
-#navbar .content-right {
-    display: flex;
-    flex-direction: row;
-    gap: 10%;
-    font-size: 5%;
-}
+.navbar-loginregister {
+    flex-direction: column;
+    justify-content: right;
+    width: 100%;
+  }
+
+
 #cart-button, #admin-button {
     width: 30%;
     height: 72%;
@@ -24,46 +26,50 @@
 #cart-button > span, #admin-button > span {
     font-size: 180%;
 }
-#login-button {
+
+.login-button {
     width: 100%;
     background-color: var(--secondary-color);
     color: var(--background-color1);
     justify-self: center;
 }
-#logout-button {
+
+.logout-button {
     background-color: var(--secondary-color);
     color: var(--background-color1);
 }
-#register-button {
+
+.register-button {
     width: 100%;
     background-color: var(--primary-color);
     color: var(--background-color1);
     justify-self: center;
 }
+
+#cart-button i.material-icons {
+    margin-top: 5px;
+}
+
 #user-full-name {
     height: 45px;
     display: flex;
     align-items: center;
 }
 
-#login-button:hover, #logout-button:hover, #register-button:hover {
+.login-button:hover, #logout-button:hover, #register-button:hover {
     background-color: var(--background-color1);
     color: var(--foreground-color1);
 }
-
-#searchbar input {
+.searchbar input {
     width: 100%;
     height: 60px;
     padding: 0 25px;
     outline: none;
-    margin-left: 0;
-    margin-right: 0;
     background-color: #E0E0E0;
     color: var(--foreground-color1);
     border-radius: 30px;
     border: none;
     font-size: 16px;
-    margin-right: 100px;
     min-width: 65px;
     justify-self: start;
 }
@@ -76,40 +82,11 @@
 #cart-button #items-in-cart {
     transition: 300ms;
 }
+
 #cart-button:hover #items-in-cart {
     opacity: 0%;
 }
 
-
-@media screen and (max-width: 600px) {
-    #navbar {
-        grid-template-columns: 1fr;
-        padding: 5px;
-    }
-
-    #navbar .content-right {
-        flex-direction: column;
-        font-size: 3%;
-    }
-
-    #cart-button, #admin-button {
-        width: 100%;
-        height: auto;
-    }
-
-    #login-button, #register-button {
-        width: 100%;
-    }
-
-    #searchbar input {
-        width: 100%;
-        height: 40px;
-        font-size: 12px;
-        margin-right: 0;
-    }
-
-    #breadcrumbs {
-        font-size: 24px;
-    }
-
+.row-buttons {
+    justify-content: center;
 }
