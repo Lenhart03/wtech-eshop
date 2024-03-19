@@ -32,7 +32,7 @@
                 </div>
             </div>
         </div>
-        <div style="max-height: calc(100vh - 86px - 35px); height: calc(100vh - 86px - 35px); width: 100%; margin-top: 35px; display: flex; flex-direction: column; gap: 20px; padding-bottom: 50px;">
+        <div style="max-height: calc(100vh - 86px - 35px - 40px); height: calc(100vh - 86px - 35px - 40px); width: 100%; margin-top: 35px; display: flex; flex-direction: column; gap: 20px; padding-bottom: 50px;">
             <?php
                 if (array_key_exists("produkty", $_GET)) {
                     echo
@@ -46,7 +46,7 @@
                         </div>";
                 }
             ?>
-            <div style="overflow-y: scroll; margin-top: 30px; border-bottom: 1px solid var(--foreground-color1);">
+            <div style="overflow-y: scroll; <?php if (array_key_exists("produkty", $_GET) || array_key_exists("objednavky", $_GET)) echo "margin-top: 30px; border-bottom: 1px solid var(--foreground-color1);"; ?>">
                 <table style="width: 100%;">
                     <thead>
                         <tr>
@@ -64,7 +64,6 @@
                                     echo "
                                         <th>ID</th>
                                         <th>Meno objednávateľa</th>
-                                        <th>Názov produktu</th>
                                         <th>Dátum</th>
                                         <th>Stav</th>
                                         <th>Akcie</th>
@@ -81,39 +80,39 @@
                                 $main_filter = $_GET["produkty"];
                                 switch ($main_filter) {
                                     case "vsetky": {
-                                        $query = "SELECT * FROM products";
+                                        $query = "WHERE TRUE";
                                         break;
                                     }
                                     case "procesory": {
-                                        $query = "SELECT * FROM products WHERE search_keys LIKE '%procesory%'";
+                                        $query = "WHERE search_keys LIKE '%procesory%'";
                                         break;
                                     }
                                     case "zakladne_dosky": {
-                                        $query = "SELECT * FROM products WHERE search_keys LIKE '%zakladne dosky%'";
+                                        $query = "WHERE search_keys LIKE '%zakladne dosky%'";
                                         break;
                                     }
                                     case "disky": {
-                                        $query = "SELECT * FROM products WHERE search_keys LIKE '%disky%'";
+                                        $query = "WHERE search_keys LIKE '%disky%'";
                                         break;
                                     }
                                     case "skrine": {
-                                        $query = "SELECT * FROM products WHERE search_keys LIKE '%skrine%'";
+                                        $query = "WHERE search_keys LIKE '%skrine%'";
                                         break;
                                     }
                                     case "ram": {
-                                        $query = "SELECT * FROM products WHERE search_keys LIKE '%ram%'";
+                                        $query = "WHERE search_keys LIKE '%ram%'";
                                         break;
                                     }
                                     case "graficke_karty": {
-                                        $query = "SELECT * FROM products WHERE search_keys LIKE '%graficke karty%'";
+                                        $query = "WHERE search_keys LIKE '%graficke karty%'";
                                         break;
                                     }
                                     case "chladenie": {
-                                        $query = "SELECT * FROM products WHERE search_keys LIKE '%chladenie%'";
+                                        $query = "WHERE search_keys LIKE '%chladenie%'";
                                         break;
                                     }
                                     case "zdroje": {
-                                        $query = "SELECT * FROM products WHERE search_keys LIKE '%zdroje%'";
+                                        $query = "WHERE search_keys LIKE '%zdroje%'";
                                         break;
                                     }
                                 }
@@ -121,28 +120,32 @@
                                 $main_filter = $_GET["objednavky"];
                                 switch ($main_filter) {
                                     case "vsetky": {
-                                        $query = "SELECT * FROM orders";
+                                        $query = "WHERE TRUE";
                                         break;
                                     }
                                     case "nove": {
-                                        $query = "SELECT * FROM orders WHERE state='new'";
+                                        $query = "WHERE state='new'";
                                         break;
                                     }
                                     case "pripravene": {
-                                        $query = "SELECT * FROM orders WHERE state='prepared'";
+                                        $query = "WHERE state='prepared'";
                                         break;
                                     }
                                     case "odoslane": {
-                                        $query = "SELECT * FROM orders WHERE state='sent'";
+                                        $query = "WHERE state='sent'";
                                         break;
                                     }
                                     case "dorucene": {
-                                        $query = "SELECT * FROM orders WHERE state='delivered'";
+                                        $query = "WHERE state='delivered'";
                                         break;
                                     }
                                 }
                             }
                             if ($query != "") {
+                                if (array_key_exists("produkty", $_GET))
+                                    $query = "SELECT * FROM products ".$query;
+                                else if (array_key_exists("objednavky", $_GET))
+                                    $query = "SELECT orders.*,users.firstname,users.lastname FROM orders JOIN users ON user_id=users.id ".$query;
                                 $result = db_query($query);
                                 if (mysqli_num_rows($result) > 0) {
                                     if (array_key_exists("produkty", $_GET)) {
@@ -150,7 +153,7 @@
                                             $id = $product["id"];
                                             $name = $product["name"];
                                             $brand = $product["brand"];
-                                            $price = $product["price"];
+                                            $price = number_format($product["price"], 2);
                                             $count = $product["count"];
                                             echo "
                                                 <tr>
@@ -166,6 +169,7 @@
                                     } else if (array_key_exists("objednavky", $_GET)) {
                                         while ($order = mysqli_fetch_assoc($result)) {
                                             $id = $order["id"];
+                                            $orderer_name = $order["firstname"]." ".$order["lastname"];
                                             $time_ordered = $order["time_ordered"];
                                             $state = $order["state"];
                                             $state_text = "";
@@ -178,8 +182,7 @@
                                             echo "
                                                 <tr>
                                                     <td>$id</td>
-                                                    <td></td>
-                                                    <td></td>
+                                                    <td>$orderer_name</td>
                                                     <td>$time_ordered</td>
                                                     <td><div class=\"order-state-$state\">$state_text</div></td>
                                                     <td></td>
@@ -193,9 +196,13 @@
                     </tbody>
                 </table>
             </div>
-            <div id="panel" style="display: flex; flex-direction: row; justify-content: right; gap: 20px;">
-                <div id="add-product-button" class="button">Pridať produkt</div>
-            </div>
+            <?php
+                if (array_key_exists("produkty", $_GET))
+                echo "
+                    <div id=\"panel\" style=\"display: flex; flex-direction: row; justify-content: right; gap: 20px;\">
+                        <div id=\"add-product-button\" class=\"button\">Pridať produkt</div>
+                    </div>";
+            ?>
         </div>
     </div>
 </body>
