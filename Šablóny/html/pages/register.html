@@ -19,7 +19,6 @@
     <link rel="stylesheet" href="../../css/components/main_footer.css">
 </head>
 <body>
-    <link rel="stylesheet" href="../../css/components/navbar.css">
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid container-navbar">
           <a class="navbar-logo" href="../../html/pages/index.html"><img src="../../../res/images/logo.png" alt="logo"></a>
@@ -59,32 +58,42 @@
                 items_in_cart += item.count
             document.querySelector("#items-in-cart").innerHTML = items_in_cart;
         }
-        </script>    <div id="errors">
-                <div class="container">
-                            </div>
-            </div>
-            <div style="height: calc(100vh - 80px - 72px - 40px);" id="content">
-                <form action="/register" method="POST" id="register-form">
-                    <h1>Registrácia</h1>
-                    <div id="split">
-                        <input type="text" name="firstname" placeholder="Meno" required value="" />
-                        <input type="text" name="lastname" placeholder="Priezovisko" required value="" />
-                    </div>
-                    <input type="text" name="email" placeholder="Email" required value="" />
-                    <input type="password" name="pword" placeholder="Heslo" required value=""/>
-                    <input type="password" name="pword2" placeholder="Potvrdiť heslo" required value=""/>
-                    <div id="policy">
-                        <p>Kliknutím na Registrovať súhlasíte s našimi</p>
-                        <a href="#">Zásadami ochrany osobných údajov.</a>
-                    </div>
-                    <input type="submit" value="Registrovať" class="button" id="register-submit-button" />
-                </form>
-            </div>
-    <link rel="stylesheet" href="../../../css/components/main_footer.css">
-    <div id="main-footer">
-        <a href="/contact" class="side" id="contact">KONTAKTY</a>
-        <a href="/" class="mid">pcpartshop</a>
-        <a href="/about" class="side" id="about">O NÁS</a>
+    </script>
+    
+    <div id="errors">
+        <div class="container">
+        </div>
     </div>
+
+    <div class="container" id="content">
+        <form action="/register" method="POST" id="register-form">
+            <h1>Registrácia</h1>
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" name="firstname" placeholder="Meno" required value="" />
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" name="lastname" placeholder="Priezovisko" required value="" />
+                </div>
+            </div>
+            <input type="text" class="form-control" name="email" placeholder="Email" required value="" />
+            <input type="password" class="form-control" name="pword" placeholder="Heslo" required value=""/>
+            <input type="password" class="form-control" name="pword2" placeholder="Potvrdiť heslo" required value=""/>
+
+            <div id="policy">
+                <p>Kliknutím na Registrovať súhlasíte s našimi</p>
+                <a href="#">Zásadami ochrany osobných údajov.</a>
+            </div>
+
+            <input type="submit" value="Registrovať" class="btn btn-primary" id="register-submit-button" />
+        </form>
+    </div>
+    
+    <div class="main-footer">
+        <a href="/contact" class="side contact">KONTAKTY</a>
+        <a href="/" class="mid">pcpartshop</a>
+        <a href="/about" class="side about">O NÁS</a>
+    </div>
+
 </body>
 </html>
