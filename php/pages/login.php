@@ -45,7 +45,7 @@
             ?>
         </div>
     </div>
-    <div style="height: calc(100vh - 80px - 72px);" id="content">
+    <div style="height: calc(100vh - 80px - 72px - 40px);" id="content">
         <form action="/login" method="POST" id="login-form">
             <h1>Prihlásenie</h1>
             <input type="text" name="email" placeholder="Email" required value="<?php if (array_key_exists("email", $_POST)) echo $_POST["email"]; ?>" />

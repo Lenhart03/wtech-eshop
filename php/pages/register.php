@@ -52,7 +52,7 @@
             ?>
         </div>
     </div>
-    <div style="height: calc(100vh - 80px - 72px);" id="content">
+    <div style="height: calc(100vh - 80px - 72px - 40px);" id="content">
         <form action="/register" method="POST" id="register-form">
             <h1>Registrácia</h1>
             <div id="split">

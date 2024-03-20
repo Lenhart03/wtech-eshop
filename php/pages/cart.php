@@ -7,7 +7,7 @@
 </head>
 <body>
     <?php include($_SERVER['DOCUMENT_ROOT']."/php/components/navbar.php"); ?>
-    <div style="max-height: calc(100vh - 80px - 72px); height: calc(100vh - 80px - 72px);" id="content" class="container">
+    <div style="max-height: calc(100vh - 80px - 72px - 40px); height: calc(100vh - 80px - 72px - 40px);" id="content" class="container">
         <table class="container" id="cart-items" style="display: none;">
         </table>
         <script>

@@ -1,0 +1,48 @@
+#register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    align-items: center;
+    margin-top: -25px;
+}
+#register-form h1 {
+    font-size: 40px;
+    font-weight: bold;
+}
+#register-form input[type=text], #register-form input[type=password] {
+    border: 3px solid var(--secondary-color);
+    border-radius: 10px;
+    width: 550px;
+    height: 45px;
+    font-size: 20px;
+    padding: 0 20px;
+}
+#register-submit-button {
+    font-size: 20px;
+    font-weight: 400;
+    background-color: var(--primary-color);
+    color: var(--background-color1);
+}
+#register-submit-button:hover {
+    background-color: var(--background-color1);
+    color: var(--foreground-colo1);
+}
+#register-form #split {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+}
+#register-form #split input[type=text] {
+    width: 265px;
+}
+#policy {
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 15px;
+}
+#policy a {
+    text-decoration: underline;
+}

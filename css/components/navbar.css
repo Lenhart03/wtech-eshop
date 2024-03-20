@@ -4,6 +4,10 @@
     gap: 20px;
     padding: 0px 5vw;
     padding-top: 20px;
+    position: sticky;
+    top: 0px;
+    background-color: var(--background-color1);
+    padding-bottom: 40px;
 }
 
 #navbar #logo {
