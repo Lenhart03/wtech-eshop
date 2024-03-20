@@ -1,3 +1,4 @@
+/* Mobile first queries */
 #content {
     display: flex;
     flex-direction: column;
@@ -5,16 +6,13 @@
     gap: 20px;
     align-items: center;
     overflow: scroll;
+    overflow-x: hidden;
 }
+
+#content 
 
 #content .container {
     overflow: scroll;
-}
-
-#search-results {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
 }
 
 #search-results .product-item {
@@ -28,7 +26,7 @@
 #search-results .product-item:hover {
     background-color: var(--background-color2);
 }
-
+    
 #search-results .product-item #thumbnail img {
     width: 200px;
     height: 200px;
@@ -43,7 +41,7 @@
 .add-to-cart-button {
     background-color: var(--primary-color);
     color: var(--background-color1);
-    width: 110px;
+    width: 120px;
     float: right;
     cursor: pointer;
 }
@@ -55,7 +53,7 @@
 #search-results .product-item #other .info {
     width: auto;
 }
-
+    
 #search-results .product-item #other .actions {
     display: flex;
     flex-direction: row;
@@ -75,4 +73,66 @@
     font-size: 20px;
     color: var(--important-color);
     width: 120px;
+}
+
+#search-results .product-item #other .info p {
+    text-align: justify;
+    max-height: 4.5rem;
+    line-height: 150%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#search-results {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#search-results .product-item {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Larger than mobile */
+@media (min-width: 400px) {
+    #search-results .product-item {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Larger than phablet */
+@media (min-width: 550px) {
+    #search-results .product-item {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Larger than tablet */
+@media (min-width: 750px) {
+    #search-results .product-item {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    #search-results .product-item #other .info p {
+        width: 500px;
+    }
+}
+
+/* Larger than desktop */
+@media (min-width: 1000px) {
+    #search-results .product-item #other .info p {
+        width: 640px;
+    }
+}
+
+/* Larger than Desktop HD */
+@media (min-width: 1200px) {
+    #search-results .product-item #other .info p {
+        width: auto;
+    }
 }

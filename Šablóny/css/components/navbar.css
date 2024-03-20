@@ -5,6 +5,9 @@
 }
 
 
+.navbar {
+    background-color: var(--background-color1);
+}
 
 .container-navbar :nth-child(1) {
     margin-right: 5%;
