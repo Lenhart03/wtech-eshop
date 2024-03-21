@@ -31,7 +31,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav navbar-loginregister mb-2 mb-lg-0">
-                <li class="nav-item">
+                <li class="nav-item shoping-cart">
                 <a href="../../cart" id="cart-button" class="button navbar-cart" data-toggle="tooltip" data-placement="bottom" title="Košík">
                     <i class="material-icons">shopping_cart</i>
                     <span id="items-in-cart" style="position:absolute; font-size: 16px; min-width: 45px; text-align: center; margin-right: 40px;">0</span>
@@ -83,11 +83,11 @@
                         <p class="product-stock">Na sklade 10ks</p>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-6">
-                        <p class="product-number">
+                        <a class="product-number">
                             <button id="decrement">-</button>
                             <input type="number" id="number" value="1" min="1" onchange="updatePrice(this,99.99)">
                             <button id="increment">+</button>
-                        </p>
+                        </a>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-6">
                         <span class="product-price" id="price">99.99 €</span>
