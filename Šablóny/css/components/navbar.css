@@ -9,6 +9,11 @@
     background-color: var(--background-color1);
 }
 
+.navbar-nav .shoping-cart {
+    align-self: center;
+    margin-bottom: 10px;
+}
+
 .container-navbar :nth-child(1) {
     margin-right: 5%;
 }
@@ -51,6 +56,7 @@
 
 #cart-button i.material-icons {
     margin-top: 5px;
+    margin-left: 10px;
 }
 
 #user-full-name {
@@ -64,7 +70,8 @@
     color: var(--foreground-color1);
 }
 .searchbar input {
-    width: 100%;
+    width: 40vw;
+    margin-right: 20px;
     height: 60px;
     padding: 0 25px;
     outline: none;
@@ -73,8 +80,19 @@
     border-radius: 30px;
     border: none;
     font-size: 16px;
-    min-width: 65px;
     justify-self: start;
+    flex-grow: 1;
+}
+
+@media (max-width: 405px) {
+    .searchbar input {
+        width: 100%;
+    }
+}
+
+.navbar-collapse {
+    flex-grow: 0;
+    margin-left: 25px;
 }
 
 #breadcrumbs {
@@ -93,3 +111,4 @@
 .row-buttons {
     justify-content: center;
 }
+
