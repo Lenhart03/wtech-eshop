@@ -193,6 +193,10 @@
                     <td><a class="material-symbols-outlined" style="cursor: pointer;" onclick="deleteCartItem(this, 1)" data-toggle="tooltip" data-placement="left" title="Odstrániť">delete</a></td>
                 </tr></tbody>
             </table>
+            <div id="bottom">
+                <span class="button" id="empty-cart-button" onclick="emptyCart()">Vyprázdniť košík</span>
+                <a href="/order"><span class="button" id="buy-button">Kúpiť</span></a>
+            </div>
         </div>
         <style>
             #cart-items {
