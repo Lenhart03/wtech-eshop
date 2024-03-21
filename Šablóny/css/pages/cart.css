@@ -35,8 +35,6 @@
     align-items: center;
     height: 50px;
 }
-.cart-item #count-and-price #count {
-}
 .cart-item #count-and-price #price {
     width: 80px;
     text-align: center;
