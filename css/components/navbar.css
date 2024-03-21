@@ -7,10 +7,39 @@
     position: sticky;
     top: 0px;
     background-color: var(--background-color1);
-    padding-bottom: 40px;
+    padding-bottom: 20px;
 }
 
 #navbar #logo {
+}
+
+@media (max-width: 900px) {
+    #navbar {
+        grid-template-columns: 1fr 2fr;
+        padding-bottom: 20px;
+    }
+    #navbar #center {
+        grid-row-start: 2;
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+}
+
+@media (max-width: 700px) {
+    #navbar {
+        grid-template-columns: 1fr 2fr;
+        padding-bottom: 20px;
+    }
+    #navbar #center {
+        grid-row-start: 1;
+        grid-column-start: 2;
+        grid-column-end: 3;
+    }
+    #navbar .content-right {
+        grid-row-start: 3;
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
 }
 
 #navbar .content-right {

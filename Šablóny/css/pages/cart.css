@@ -1,9 +1,14 @@
 #content {
+    margin-top: 40px;
+}
+#content {
     display: flex;
     flex-direction: column;
     justify-content: start;
     gap: 20px;
     align-items: center;
+    max-height: 50vh;
+    overflow-y: scroll;
 }
 
 #content .container {

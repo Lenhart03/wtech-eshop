@@ -111,6 +111,10 @@ input[type=number] {
     background-clip: padding-box;
 }
 
+@media (max-width: 400px) {
+
+}
+
 /* Larger than mobile */
 @media (min-width: 400px) {
 

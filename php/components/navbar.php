@@ -17,7 +17,7 @@
         if ($loggedin) $userfullname = $_SESSION["user"]["firstname"]." ".$_SESSION["user"]["lastname"];
 
         // middle - searchbar
-        echo "<div>";
+        echo "<div id=\"center\">";
         if (!$adminpage)
         {
             $key = "";
