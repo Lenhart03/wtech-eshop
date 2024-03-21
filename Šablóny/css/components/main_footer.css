@@ -22,12 +22,13 @@
     font-weight: normal;
 }
 
-.main-footer #about {
-    text-align: right;
+.main-footer .about {
+    text-align: center;
+    word-wrap: nowrap;
+    min-width: 80px;
 }
 @media (max-width: 560px) {
     .main-footer {
         flex-direction: column;
     }
-    
 }

@@ -3,166 +3,193 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="../../../res/images/favicon.png">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="../../css/main.css">
-    <link rel="stylesheet" href="../../css/pages/search.css">
     <title>cpu - pcpartshop.sk</title>
+    <link rel="icon" href="../../../res/images/favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    <link rel="stylesheet" href="../../css/pages/search.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/pages/index.css">
+    <link rel="stylesheet" href="../../css/components/navbar.css">
+    <link rel="stylesheet" href="../../css/components/main_footer.css">
 </head>
 <body>
     <link rel="stylesheet" href="../../../css/components/navbar.css">
-<div id="navbar">
-    <div id="logo">
-        <a href="index.html"><img src="../../../res/images/logo.png" alt=""></a>
-    </div>
-    <div>
-                <form action="/search" id="searchbar" method="GET">
-                    <input name="key" placeholder="Vyhľadávanie" required value="cpu" />
-                </form></div><div class="content-right">
-                <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-                <a href="/cart" id="cart-button" class="button" data-toggle="tooltip" data-placement="bottom" title="Košík">
-                    <span class="material-symbols-outlined">shopping_cart</span>
-                    <span id="items-in-cart" style="position:absolute; font-size: 16px; min-width: 45px; text-align: center; margin-top: -40px;">0</span>
-                </a><a href="/login" id="login-button" class="button">Prihlásiť</a><a href="/register" id="register-button" class="button">Registrovať</a></div></div>
-<script>
-$(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();   
-});
-let cart = JSON.parse(localStorage.getItem("cart_products"));
-if (cart) {
-    let items_in_cart = 0;
-    for (const item of cart)
-        items_in_cart += item.count
-    document.querySelector("#items-in-cart").innerHTML = items_in_cart;
-}
-</script>    <script>
-        function updatePrice(input, price) {
-            input.parentElement.parentElement.querySelector("#price").innerHTML = (Math.round(input.value * price * 100) / 100).toFixed(2) + " €";
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid container-navbar">
+          <a class="navbar-logo" href="../../html/pages/index.html"><img src="../../../res/images/logo.png" alt="logo"></a>
+          <form class="searchbar" role="search" action="search.html">
+            <input name="key" placeholder="Vyhľadávanie" />
+          </form>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav navbar-loginregister mb-2 mb-lg-0">
+                <li class="nav-item">
+                <a href="cart.html" id="cart-button" class="button navbar-cart" data-toggle="tooltip" data-placement="bottom" title="Košík">
+                    <i class="material-icons">shopping_cart</i>
+                    <span id="items-in-cart" style="position:absolute; font-size: 16px; min-width: 45px; text-align: center; margin-right: 40px;">0</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="login.html" class="btn login-button" type="submit">Prihlasenie</a>
+              </li>
+              <li class="nav-item">
+                <a href="register.html" class="btn register-button" type="submit">Registracia</a>
+              </li>
+                
+              </ul>
+          </div>
+        </div>
+    </nav>
+
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();   
+        });
+        let cart = JSON.parse(localStorage.getItem("cart_products"));
+        if (cart) {
+            let items_in_cart = 0;
+            for (const item of cart)
+                items_in_cart += item.count
+            document.querySelector("#items-in-cart").innerHTML = items_in_cart;
         }
-    </script>
-    <div style="max-height: calc(100vh - 80px - 72px); height: calc(100vh - 80px - 72px);" id="content" class="items-top">
-        <div class="" style="max-width: 900px; width: 100%; margin: 0 20px;"><p>5 položiek</p><div id="search-results">
-                        <div class="product-item">
-                                <a href="/product?id=1">
-                            <div id="thumbnail">
-                                <img src="" />
-                            </div>
-                            <div id="other">
-                                <div class="info">
-                                    <h3>AMD Ryzen 9 5900X</h3>
-                                    <p>Procesor 12-jadrový, 24 vláken, 3.7GHz (TDP 105W), Boost 4.8 GHz, 64MB L3 cache, Bez integrovaného grafického čipu, socket AMD AM4, Vermeer, bez chladiča</p>
-                                </div>
-                                </a>
-                                <div class="actions">
-                                    <div id="left">
-                                        <span>Na sklade: 24 ks</span>
+        </script>    <script>
+                function updatePrice(input, price) {
+                    input.parentElement.parentElement.querySelector("#price").innerHTML = (Math.round(input.value * price * 100) / 100).toFixed(2) + " €";
+                }
+            </script>
+            <div id="content" class="items-top">
+                <div class="container" style="max-width: 900px; width: 100%; margin: 0 20px;">
+                    <p>5 položiek</p>
+                    <div id="search-results">
+                                <div class="product-item">
+                                        <a href="/product?id=1">
+                                    <div id="thumbnail">
+                                        <img src="" />
                                     </div>
-                                    <div id="right">
-                                        <input id="count" type="number" min="1" max="24" value="1" onchange="updatePrice(this, 296.90)" />
-                                        <span id="price">296.90 €</span>
-                                        <span class="button add-to-cart-button" onclick="add_to_cart(1, Number(this.parentElement.parentElement.querySelector('input#count').value))">Do košíka</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item">
-                                <a href="/product?id=2">
-                            <div id="thumbnail">
-                                <img src="" />
-                            </div>
-                            <div id="other">
-                                <div class="info">
-                                    <h3>AMD Ryzen 5 5600X</h3>
-                                    <p>Procesor 6-jadrový, 12 vláken, 3.7GHz (TDP 65W), Boost 4.6 GHz, 32MB L3 cache, Bez integrovaného grafického čipu, socket AMD AM4, Vermeer, box chladič, Wraith Stealth</p>
-                                </div>
-                                </a>
-                                <div class="actions">
-                                    <div id="left">
-                                        <span>Na sklade: 63 ks</span>
-                                    </div>
-                                    <div id="right">
-                                        <input id="count" type="number" min="1" max="63" value="1" onchange="updatePrice(this, 159.90)" />
-                                        <span id="price">159.90 €</span>
-                                        <span class="button add-to-cart-button" onclick="add_to_cart(2, Number(this.parentElement.parentElement.querySelector('input#count').value))">Do košíka</span>
+                                    <div id="other">
+                                        <div class="info">
+                                            <h3>AMD Ryzen 9 5900X</h3>
+                                            <p>Procesor 12-jadrový, 24 vláken, 3.7GHz (TDP 105W), Boost 4.8 GHz, 64MB L3 cache, Bez integrovaného grafického čipu, socket AMD AM4, Vermeer, bez chladiča</p>
+                                        </div>
+                                        </a>
+                                        <div class="actions">
+                                            <div id="left">
+                                                <span>Na sklade: 24 ks</span>
+                                            </div>
+                                            <div id="right">
+                                                <input id="count" type="number" min="1" max="24" value="1" onchange="updatePrice(this, 296.90)" />
+                                                <span id="price">296.90 €</span>
+                                                <span class="button add-to-cart-button" onclick="add_to_cart(1, Number(this.parentElement.parentElement.querySelector('input#count').value))">Do košíka</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="product-item">
-                                <a href="/product?id=4">
-                            <div id="thumbnail">
-                                <img src="" />
-                            </div>
-                            <div id="other">
-                                <div class="info">
-                                    <h3>Intel Core i3-10100F</h3>
-                                    <p>Procesor 4-jadrový, 8 vláken, 3.6GHz (TDP 65W), Boost 4.3 GHz, 6MB L3 cache, Bez integrovaného grafického čipu, socket Intel 1200, Comet Lake, box chladič, iba chipset Intel radu 5xx. 4xx</p>
-                                </div>
-                                </a>
-                                <div class="actions">
-                                    <div id="left">
-                                        <span>Na sklade: 14 ks</span>
+                                <div class="product-item">
+                                        <a href="/product?id=2">
+                                    <div id="thumbnail">
+                                        <img src="" />
                                     </div>
-                                    <div id="right">
-                                        <input id="count" type="number" min="1" max="14" value="1" onchange="updatePrice(this, 74.15)" />
-                                        <span id="price">74.15 €</span>
-                                        <span class="button add-to-cart-button" onclick="add_to_cart(4, Number(this.parentElement.parentElement.querySelector('input#count').value))">Do košíka</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item">
-                                <a href="/product?id=5">
-                            <div id="thumbnail">
-                                <img src="" />
-                            </div>
-                            <div id="other">
-                                <div class="info">
-                                    <h3>Intel Core i7-14700KF</h3>
-                                    <p>Procesor 20-jadrový, 28 vláken, 3.4GHz (TDP 253W), Turboboost 5.6GHz, Boost 5.6 GHz, 33MB L3 cache, Bez integrovaného grafického čipu, socket Intel LGA1700, Raptor Lake Refresh, bez chladiča</p>
-                                </div>
-                                </a>
-                                <div class="actions">
-                                    <div id="left">
-                                        <span>Na sklade: 47 ks</span>
-                                    </div>
-                                    <div id="right">
-                                        <input id="count" type="number" min="1" max="47" value="1" onchange="updatePrice(this, 442.90)" />
-                                        <span id="price">442.90 €</span>
-                                        <span class="button add-to-cart-button" onclick="add_to_cart(5, Number(this.parentElement.parentElement.querySelector('input#count').value))">Do košíka</span>
+                                    <div id="other">
+                                        <div class="info">
+                                            <h3>AMD Ryzen 5 5600X</h3>
+                                            <p>Procesor 6-jadrový, 12 vláken, 3.7GHz (TDP 65W), Boost 4.6 GHz, 32MB L3 cache, Bez integrovaného grafického čipu, socket AMD AM4, Vermeer, box chladič, Wraith Stealth</p>
+                                        </div>
+                                        </a>
+                                        <div class="actions">
+                                            <div id="left">
+                                                <span>Na sklade: 63 ks</span>
+                                            </div>
+                                            <div id="right">
+                                                <input id="count" type="number" min="1" max="63" value="1" onchange="updatePrice(this, 159.90)" />
+                                                <span id="price">159.90 €</span>
+                                                <span class="button add-to-cart-button" onclick="add_to_cart(2, Number(this.parentElement.parentElement.querySelector('input#count').value))">Do košíka</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="product-item">
-                                <a href="/product?id=6">
-                            <div id="thumbnail">
-                                <img src="" />
-                            </div>
-                            <div id="other">
-                                <div class="info">
-                                    <h3>Intel Core i9-14900K</h3>
-                                    <p>Procesor 24-jadrový, 32 vláken, 3.2GHz (TDP 253W), Turboboost 6GHz, Boost 6 GHz, 36MB L3 cache, Intel UHD Graphics 770, socket Intel LGA1700, Raptor Lake Refresh, bez chladiča</p>
-                                </div>
-                                </a>
-                                <div class="actions">
-                                    <div id="left">
-                                        <span>Na sklade: 7 ks</span>
+                                <div class="product-item">
+                                        <a href="/product?id=4">
+                                    <div id="thumbnail">
+                                        <img src="" />
                                     </div>
-                                    <div id="right">
-                                        <input id="count" type="number" min="1" max="7" value="1" onchange="updatePrice(this, 690.00)" />
-                                        <span id="price">690.00 €</span>
-                                        <span class="button add-to-cart-button" onclick="add_to_cart(6, Number(this.parentElement.parentElement.querySelector('input#count').value))">Do košíka</span>
+                                    <div id="other">
+                                        <div class="info">
+                                            <h3>Intel Core i3-10100F</h3>
+                                            <p>Procesor 4-jadrový, 8 vláken, 3.6GHz (TDP 65W), Boost 4.3 GHz, 6MB L3 cache, Bez integrovaného grafického čipu, socket Intel 1200, Comet Lake, box chladič, iba chipset Intel radu 5xx. 4xx</p>
+                                        </div>
+                                        </a>
+                                        <div class="actions">
+                                            <div id="left">
+                                                <span>Na sklade: 14 ks</span>
+                                            </div>
+                                            <div id="right">
+                                                <input id="count" type="number" min="1" max="14" value="1" onchange="updatePrice(this, 74.15)" />
+                                                <span id="price">74.15 €</span>
+                                                <span class="button add-to-cart-button" onclick="add_to_cart(4, Number(this.parentElement.parentElement.querySelector('input#count').value))">Do košíka</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div></div></div>    </div>
+                                <div class="product-item">
+                                        <a href="/product?id=5">
+                                    <div id="thumbnail">
+                                        <img src="" />
+                                    </div>
+                                    <div id="other">
+                                        <div class="info">
+                                            <h3>Intel Core i7-14700KF</h3>
+                                            <p>Procesor 20-jadrový, 28 vláken, 3.4GHz (TDP 253W), Turboboost 5.6GHz, Boost 5.6 GHz, 33MB L3 cache, Bez integrovaného grafického čipu, socket Intel LGA1700, Raptor Lake Refresh, bez chladiča</p>
+                                        </div>
+                                        </a>
+                                        <div class="actions">
+                                            <div id="left">
+                                                <span>Na sklade: 47 ks</span>
+                                            </div>
+                                            <div id="right">
+                                                <input id="count" type="number" min="1" max="47" value="1" onchange="updatePrice(this, 442.90)" />
+                                                <span id="price">442.90 €</span>
+                                                <span class="button add-to-cart-button" onclick="add_to_cart(5, Number(this.parentElement.parentElement.querySelector('input#count').value))">Do košíka</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-item">
+                                        <a href="/product?id=6">
+                                    <div id="thumbnail">
+                                        <img src="" />
+                                    </div>
+                                    <div id="other">
+                                        <div class="info">
+                                            <h3>Intel Core i9-14900K</h3>
+                                            <p>Procesor 24-jadrový, 32 vláken, 3.2GHz (TDP 253W), Turboboost 6GHz, Boost 6 GHz, 36MB L3 cache, Intel UHD Graphics 770, socket Intel LGA1700, Raptor Lake Refresh, bez chladiča</p>
+                                        </div>
+                                        </a>
+                                        <div class="actions">
+                                            <div id="left">
+                                                <span>Na sklade: 7 ks</span>
+                                            </div>
+                                            <div id="right">
+                                                <input id="count" type="number" min="1" max="7" value="1" onchange="updatePrice(this, 690.00)" />
+                                                <span id="price">690.00 €</span>
+                                                <span class="button add-to-cart-button" onclick="add_to_cart(6, Number(this.parentElement.parentElement.querySelector('input#count').value))">Do košíka</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div></div></div>    </div>
+
     <link rel="stylesheet" href="../../../css/components/main_footer.css">
-<div id="main-footer">
-    <a href="/contact" class="side" id="contact">KONTAKTY</a>
-    <a href="/" class="mid">pcpartshop</a>
-    <a href="/about" class="side" id="about">O NÁS</a>
-</div></body>
+    <div class="main-footer">
+        <a href="/contact" class="side contact">KONTAKTY</a>
+        <a href="/" class="mid">pcpartshop</a>
+        <a href="/about" class="side about">O NÁS</a>
+    </div>
+</body>
 </html>
