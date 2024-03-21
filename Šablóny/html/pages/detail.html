@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>pcpartshop.sk</title>
+    <link rel="icon" href="/res/images/favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="/js/main.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/pages/index.css">
+    <link rel="stylesheet" href="../../css/components/navbar.css">
+    <link rel="stylesheet" href="../../css/components/main_footer.css">
+    <link rel="stylesheet" href="../../css/pages/detail.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid container-navbar">
+            <a class="navbar-logo" href="../../html/pages/index.html"><img src="../../../res/images/logo.png" alt="logo"></a>
+            <form class="searchbar" role="search">
+              <input name="key" placeholder="Vyhľadávanie" />
+            </form>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav navbar-loginregister mb-2 mb-lg-0">
+                <li class="nav-item">
+                <a href="../../cart" id="cart-button" class="button navbar-cart" data-toggle="tooltip" data-placement="bottom" title="Košík">
+                    <i class="material-icons">shopping_cart</i>
+                    <span id="items-in-cart" style="position:absolute; font-size: 16px; min-width: 45px; text-align: center; margin-right: 40px;">0</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="../../login" class="btn login-button" type="submit">Prihlasenie</a>
+            </li>
+            <li class="nav-item">
+                <a href="../../register" class="btn register-button" type="submit">Registracia</a>
+            </li>
+                
+            </ul>
+            
+        </div>
+      </div>
+    </nav>
+    
+    <div class="container" style="margin-top: 20px;">
+        <div class="row">
+            <div class="col-lg-5 col-md-12 col-sm-12 gallery">
+                <div class="main-image">
+                    <img class="d-block mx-auto" src="../../placoholders/img1.svg" alt="main">
+                </div>
+                <div class="row gallery-images">
+                    <div class="col">
+                        <img class="square-images d-block mx-auto" src="../../placoholders/img1.svg" alt="gallery">
+                    </div>
+                    <div class="col">
+                        <img class="square-images d-block mx-auto" src="../../placoholders/img2.svg" alt="gallery">
+                    </div>
+                    <div class="col">
+                        <img class="square-images d-block mx-auto" src="../../placoholders/img3.svg" alt="gallery">
+                    </div>
+                    <div class="col">
+                        <img class="square-images d-block mx-auto" src="../../placoholders/img4.svg" alt="gallery">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7 col-md-12 col-sm-12">
+                <div class="row">
+                    <h1 class="product-name">Názov produktu</h1>
+                </div>
+                <div class="row">
+                    <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mus erat id erat sit at gravida curabitur ornare imperdiet fringilla faucibus. Enim nec sociosqu magnis hendrerit nec consectetur pharetra rutrum proin dui eleifend. Elit proin fusce vivamus habitasse imperdiet sollicitudin ligula magna metus ultrices nulla. Fringilla placerat quis mattis est litora taciti porttitor quis tortor sed semper. Adipiscing feugiat diam rutrum egestas dictumst justo fusce maecenas leo class condimentum.</p>
+                </div>
+                <div class="row" style="margin-top: 40px;">
+                    <div class="col-lg-3 col-md-3 col-sm-6">
+                        <p class="product-stock">Na sklade 10ks</p>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6">
+                        <p class="product-number">
+                            <button id="decrement">-</button>
+                            <input type="number" id="number" value="1" min="1" onchange="updatePrice(this,99.99)">
+                            <button id="increment">+</button>
+                        </p>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6">
+                        <span class="product-price" id="price">99.99 €</span>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6">
+                        <a class="btn product-buy">Do košíka</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 40px;">
+            <div class="col-lg-12">
+                <h2 class="product-specs">Parametre</h2>
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <td>Parameter1</td>
+                            <td>Hodnota</td>
+                        </tr>
+                        <tr>
+                            <td>Parameter2</td>
+                            <td>Hodnota</td>
+                        </tr>
+                        <tr>
+                            <td>Parameter3</td>
+                            <td>Hodnota</td>
+                        </tr>
+                        <tr>
+                            <td>Parameter4</td>
+                            <td>Hodnota</td>
+                        </tr>
+                        <tr>
+                            <td>Parameter5</td>
+                            <td>Hodnota</td>
+                        </tr>
+                        <tr>
+                            <td>Parameter6</td>
+                            <td>Hodnota</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    </div>
+
+
+    <div class="main-footer">
+        <a href="/contact" class="side contact">KONTAKTY</a>
+        <a href="/" class="mid">pcpartshop</a>
+        <a href="/about" class="side about">O NÁS</a>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>/*Script pre upravu ceny a mnozstva produktov*/
+        $(document).ready(function() {
+            var decrementButton = $('#decrement');
+            var incrementButton = $('#increment');
+            var numberField = $('#number');
+
+            decrementButton.click(function() {
+                var currentNumber = parseInt(numberField.val(), 10);
+                if (currentNumber > 1) {
+                    numberField.val(currentNumber - 1);
+                }
+                updatePrice(numberField.val(), 99.99);
+            });
+
+            incrementButton.click(function() {
+                var currentNumber = parseInt(numberField.val(), 10);
+                numberField.val(currentNumber + 1);
+                updatePrice(numberField.val(), 99.99);
+            });
+
+            numberField.on('input', function() {
+                updatePrice($(this).val(), 99.99);
+            });
+
+            function updatePrice(quantity, price) {
+                var totalPrice = (Math.round(quantity * price * 100) / 100).toFixed(2);
+                $("#price").html(totalPrice + " €");
+            }
+        });
+    </script>
+    <script>/*Script na highlightovanie a vymenu obrazku*/
+        var squareImages = document.querySelectorAll('.square-images');
+        
+        var firstSquareImage = squareImages[0];
+        var mainImage = document.querySelector('.main-image img');
+        mainImage.src = firstSquareImage.src;
+        firstSquareImage.classList.add('highlight');
+
+        for (var i = 0; i < squareImages.length; i++) {
+            squareImages[i].addEventListener('click', function(event) {
+                var clickedImageSrc = event.target.src;
+                var mainImage = document.querySelector('.main-image img');
+                mainImage.src = clickedImageSrc;
+    
+                for (var j = 0; j < squareImages.length; j++) {
+                    squareImages[j].classList.remove('highlight');
+                }
+    
+                event.target.classList.add('highlight');
+            });
+        }
+    </script>
+
+</body>
+
+</html>

@@ -17,9 +17,9 @@
     <link rel="stylesheet" href="../../css/pages/index.css">
     <link rel="stylesheet" href="../../css/components/navbar.css">
     <link rel="stylesheet" href="../../css/components/main_footer.css">
+    <link rel="stylesheet" href="../../css/components/navbar.css">
 </head>
 <body>
-    <link rel="stylesheet" href="../../css/components/navbar.css">
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid container-navbar">
           <a class="navbar-logo" href="../../html/pages/index.html"><img src="../../../res/images/logo.png" alt="logo"></a>
@@ -59,10 +59,13 @@
             items_in_cart += item.count
         document.querySelector("#items-in-cart").innerHTML = items_in_cart;
     }
-    </script>    <div id="errors">
-    <div class="container">
+    </script>
+
+    <div class="errors">
+        <div class="container">
+        </div>
     </div>
-    </div>
+
     <div style="height: calc(100vh - 80px - 72px - 40px);" id="content">
         <form action="/login" method="POST" id="login-form">
             <h1>Prihlásenie</h1>
@@ -71,11 +74,11 @@
             <input type="submit" value="Prihlásiť" class="button" id="login-submit-button" />
         </form>
     </div>
-    <link rel="stylesheet" href="../../../css/components/main_footer.css">
-    <div id="main-footer">
-        <a href="/contact" class="side" id="contact">KONTAKTY</a>
+    
+    <div class="main-footer">
+        <a href="/contact" class="side contact">KONTAKTY</a>
         <a href="/" class="mid">pcpartshop</a>
-        <a href="/about" class="side" id="about">O NÁS</a>
+        <a href="/about" class="side about">O NÁS</a>
     </div>
 </body>
 </html>
