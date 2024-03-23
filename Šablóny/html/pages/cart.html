@@ -50,19 +50,6 @@
         </div>
       </div>
     </nav>
-    <script>
-        $(document).ready(function(){
-            $('[data-toggle="tooltip"]').tooltip();   
-        });
-        localStorage.setItem("cart_products", '[{"product_id":1,"count":2},{"product_id":2,"count":1},{"product_id":4,"count":1},{"product_id":5,"count":3},{"product_id":6,"count":1}]');
-        let cart = JSON.parse(localStorage.getItem("cart_products"));
-        if (cart) {
-            let items_in_cart = 0;
-            for (const item of cart)
-                items_in_cart += item.count
-            document.querySelector("#items-in-cart").innerHTML = items_in_cart;
-        }
-        </script>
         <div id="content">
             <table class="container" id="cart-items" style="display: table;">
                 <tbody><tr class="cart-item">
@@ -71,7 +58,7 @@
                         <input type="number" id="count" min="1" value="1" onchange="updateCartItemPrice(this, 690, 6)">
                         <span id="price">690.00 €</span>
                     </td>
-                    <td><a class="material-symbols-outlined" style="cursor: pointer;" onclick="deleteCartItem(this, 6)" data-toggle="tooltip" data-placement="left" title="Odstrániť">delete</a></td>
+                    <td><a class="material-icons" style="cursor: pointer;" onclick="deleteCartItem(this, 6)" data-toggle="tooltip" data-placement="left" title="Odstrániť">delete</a></td>
                 </tr></tbody>
                 <tbody><tr class="cart-item">
                     <td><a href="/product?id=5">Intel Core i7-14700KF</a></td>
@@ -79,7 +66,7 @@
                         <input type="number" id="count" min="1" value="3" onchange="updateCartItemPrice(this, 442.9, 5)">
                         <span id="price">1328.70 €</span>
                     </td>
-                    <td><a class="material-symbols-outlined" style="cursor: pointer;" onclick="deleteCartItem(this, 5)" data-toggle="tooltip" data-placement="left" title="" data-original-title="Odstrániť">delete</a></td>
+                    <td><a class="material-icons" style="cursor: pointer;" onclick="deleteCartItem(this, 5)" data-toggle="tooltip" data-placement="left" title="" data-original-title="Odstrániť">delete</a></td>
                 </tr></tbody>
                 <tbody><tr class="cart-item">
                     <td><a href="/product?id=4">Intel Core i3-10100F</a></td>
@@ -87,7 +74,7 @@
                         <input type="number" id="count" min="1" value="1" onchange="updateCartItemPrice(this, 74.15, 4)">
                         <span id="price">74.15 €</span>
                     </td>
-                    <td><a class="material-symbols-outlined" style="cursor: pointer;" onclick="deleteCartItem(this, 4)" data-toggle="tooltip" data-placement="left" title="" data-original-title="Odstrániť">delete</a></td>
+                    <td><a class="material-icons" style="cursor: pointer;" onclick="deleteCartItem(this, 4)" data-toggle="tooltip" data-placement="left" title="" data-original-title="Odstrániť">delete</a></td>
                 </tr></tbody>
                 <tbody><tr class="cart-item">
                     <td><a href="/product?id=2">AMD Ryzen 5 5600X</a></td>
@@ -95,7 +82,7 @@
                         <input type="number" id="count" min="1" value="1" onchange="updateCartItemPrice(this, 159.9, 2)">
                         <span id="price">159.90 €</span>
                     </td>
-                    <td><a class="material-symbols-outlined" style="cursor: pointer;" onclick="deleteCartItem(this, 2)" data-toggle="tooltip" data-placement="left" title="Odstrániť">delete</a></td>
+                    <td><a class="material-icons" style="cursor: pointer;" onclick="deleteCartItem(this, 2)" data-toggle="tooltip" data-placement="left" title="Odstrániť">delete</a></td>
                 </tr></tbody>
                 <tbody><tr class="cart-item">
                     <td><a href="/product?id=1">AMD Ryzen 9 5900X</a></td>
@@ -103,7 +90,7 @@
                         <input type="number" id="count" min="1" value="2" onchange="updateCartItemPrice(this, 296.9, 1)">
                         <span id="price">593.80 €</span>
                     </td>
-                    <td><a class="material-symbols-outlined" style="cursor: pointer;" onclick="deleteCartItem(this, 1)" data-toggle="tooltip" data-placement="left" title="Odstrániť">delete</a></td>
+                    <td><a class="material-icons" style="cursor: pointer;" onclick="deleteCartItem(this, 1)" data-toggle="tooltip" data-placement="left" title="Odstrániť">delete</a></td>
                 </tr></tbody>
                 <tbody><tr class="cart-item">
                     <td><a href="/product?id=1">AMD Ryzen 9 5900X</a></td>
@@ -111,7 +98,7 @@
                         <input type="number" id="count" min="1" value="2" onchange="updateCartItemPrice(this, 296.9, 1)">
                         <span id="price">593.80 €</span>
                     </td>
-                    <td><a class="material-symbols-outlined" style="cursor: pointer;" onclick="deleteCartItem(this, 1)" data-toggle="tooltip" data-placement="left" title="Odstrániť">delete</a></td>
+                    <td><a class="material-icons" style="cursor: pointer;" onclick="deleteCartItem(this, 1)" data-toggle="tooltip" data-placement="left" title="Odstrániť">delete</a></td>
                 </tr></tbody>
                 <tbody><tr class="cart-item">
                     <td><a href="/product?id=1">AMD Ryzen 9 5900X</a></td>
@@ -119,7 +106,7 @@
                         <input type="number" id="count" min="1" value="2" onchange="updateCartItemPrice(this, 296.9, 1)">
                         <span id="price">593.80 €</span>
                     </td>
-                    <td><a class="material-symbols-outlined" style="cursor: pointer;" onclick="deleteCartItem(this, 1)" data-toggle="tooltip" data-placement="left" title="Odstrániť">delete</a></td>
+                    <td><a class="material-icons" style="cursor: pointer;" onclick="deleteCartItem(this, 1)" data-toggle="tooltip" data-placement="left" title="Odstrániť">delete</a></td>
                 </tr></tbody>
                 <tbody><tr class="cart-item">
                     <td><a href="/product?id=1">AMD Ryzen 9 5900X</a></td>
@@ -127,7 +114,7 @@
                         <input type="number" id="count" min="1" value="2" onchange="updateCartItemPrice(this, 296.9, 1)">
                         <span id="price">593.80 €</span>
                     </td>
-                    <td><a class="material-symbols-outlined" style="cursor: pointer;" onclick="deleteCartItem(this, 1)" data-toggle="tooltip" data-placement="left" title="Odstrániť">delete</a></td>
+                    <td><a class="material-icons" style="cursor: pointer;" onclick="deleteCartItem(this, 1)" data-toggle="tooltip" data-placement="left" title="Odstrániť">delete</a></td>
                 </tr></tbody>
                 <tbody><tr class="cart-item">
                     <td><a href="/product?id=1">AMD Ryzen 9 5900X</a></td>
@@ -135,7 +122,7 @@
                         <input type="number" id="count" min="1" value="2" onchange="updateCartItemPrice(this, 296.9, 1)">
                         <span id="price">593.80 €</span>
                     </td>
-                    <td><a class="material-symbols-outlined" style="cursor: pointer;" onclick="deleteCartItem(this, 1)" data-toggle="tooltip" data-placement="left" title="Odstrániť">delete</a></td>
+                    <td><a class="material-icons" style="cursor: pointer;" onclick="deleteCartItem(this, 1)" data-toggle="tooltip" data-placement="left" title="Odstrániť">delete</a></td>
                 </tr></tbody>
                 <tbody><tr class="cart-item">
                     <td><a href="/product?id=1">AMD Ryzen 9 5900X</a></td>
@@ -143,7 +130,7 @@
                         <input type="number" id="count" min="1" value="2" onchange="updateCartItemPrice(this, 296.9, 1)">
                         <span id="price">593.80 €</span>
                     </td>
-                    <td><a class="material-symbols-outlined" style="cursor: pointer;" onclick="deleteCartItem(this, 1)" data-toggle="tooltip" data-placement="left" title="Odstrániť">delete</a></td>
+                    <td><a class="material-icons" style="cursor: pointer;" onclick="deleteCartItem(this, 1)" data-toggle="tooltip" data-placement="left" title="Odstrániť">delete</a></td>
                 </tr></tbody>
                 <tbody><tr class="cart-item">
                     <td><a href="/product?id=1">AMD Ryzen 9 5900X</a></td>
@@ -151,7 +138,7 @@
                         <input type="number" id="count" min="1" value="2" onchange="updateCartItemPrice(this, 296.9, 1)">
                         <span id="price">593.80 €</span>
                     </td>
-                    <td><a class="material-symbols-outlined" style="cursor: pointer;" onclick="deleteCartItem(this, 1)" data-toggle="tooltip" data-placement="left" title="Odstrániť">delete</a></td>
+                    <td><a class="material-icons" style="cursor: pointer;" onclick="deleteCartItem(this, 1)" data-toggle="tooltip" data-placement="left" title="Odstrániť">delete</a></td>
                 </tr></tbody>
                 <tbody><tr class="cart-item">
                     <td><a href="/product?id=1">AMD Ryzen 9 5900X</a></td>
@@ -159,7 +146,7 @@
                         <input type="number" id="count" min="1" value="2" onchange="updateCartItemPrice(this, 296.9, 1)">
                         <span id="price">593.80 €</span>
                     </td>
-                    <td><a class="material-symbols-outlined" style="cursor: pointer;" onclick="deleteCartItem(this, 1)" data-toggle="tooltip" data-placement="left" title="Odstrániť">delete</a></td>
+                    <td><a class="material-icons" style="cursor: pointer;" onclick="deleteCartItem(this, 1)" data-toggle="tooltip" data-placement="left" title="Odstrániť">delete</a></td>
                 </tr></tbody>
                 <tbody><tr class="cart-item">
                     <td><a href="/product?id=1">AMD Ryzen 9 5900X</a></td>
@@ -167,7 +154,7 @@
                         <input type="number" id="count" min="1" value="2" onchange="updateCartItemPrice(this, 296.9, 1)">
                         <span id="price">593.80 €</span>
                     </td>
-                    <td><a class="material-symbols-outlined" style="cursor: pointer;" onclick="deleteCartItem(this, 1)" data-toggle="tooltip" data-placement="left" title="Odstrániť">delete</a></td>
+                    <td><a class="material-icons" style="cursor: pointer;" onclick="deleteCartItem(this, 1)" data-toggle="tooltip" data-placement="left" title="Odstrániť">delete</a></td>
                 </tr></tbody>
                 <tbody><tr class="cart-item">
                     <td><a href="/product?id=1">AMD Ryzen 9 5900X</a></td>
@@ -175,7 +162,7 @@
                         <input type="number" id="count" min="1" value="2" onchange="updateCartItemPrice(this, 296.9, 1)">
                         <span id="price">593.80 €</span>
                     </td>
-                    <td><a class="material-symbols-outlined" style="cursor: pointer;" onclick="deleteCartItem(this, 1)" data-toggle="tooltip" data-placement="left" title="Odstrániť">delete</a></td>
+                    <td><a class="material-icons" style="cursor: pointer;" onclick="deleteCartItem(this, 1)" data-toggle="tooltip" data-placement="left" title="Odstrániť">delete</a></td>
                 </tr></tbody>
                 <tbody><tr class="cart-item">
                     <td><a href="/product?id=1">AMD Ryzen 9 5900X</a></td>
@@ -183,7 +170,7 @@
                         <input type="number" id="count" min="1" value="2" onchange="updateCartItemPrice(this, 296.9, 1)">
                         <span id="price">593.80 €</span>
                     </td>
-                    <td><a class="material-symbols-outlined" style="cursor: pointer;" onclick="deleteCartItem(this, 1)" data-toggle="tooltip" data-placement="left" title="Odstrániť">delete</a></td>
+                    <td><a class="material-icons" style="cursor: pointer;" onclick="deleteCartItem(this, 1)" data-toggle="tooltip" data-placement="left" title="Odstrániť">delete</a></td>
                 </tr></tbody>
                 <tbody><tr class="cart-item">
                     <td><a href="/product?id=1">AMD Ryzen 9 5900X</a></td>
@@ -191,12 +178,12 @@
                         <input type="number" id="count" min="1" value="2" onchange="updateCartItemPrice(this, 296.9, 1)">
                         <span id="price">593.80 €</span>
                     </td>
-                    <td><a class="material-symbols-outlined" style="cursor: pointer;" onclick="deleteCartItem(this, 1)" data-toggle="tooltip" data-placement="left" title="Odstrániť">delete</a></td>
+                    <td><a class="material-icons" style="cursor: pointer;" onclick="deleteCartItem(this, 1)" data-toggle="tooltip" data-placement="left" title="Odstrániť">delete</a></td>
                 </tr></tbody>
             </table>
             <div id="bottom">
                 <span class="button" id="empty-cart-button" onclick="emptyCart()">Vyprázdniť košík</span>
-                <a href="/order"><span class="button" id="buy-button">Kúpiť</span></a>
+                <a href="order.html"><span class="button" id="buy-button">Kúpiť</span></a>
             </div>
         </div>
         <style>
