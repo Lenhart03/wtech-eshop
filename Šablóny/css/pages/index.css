@@ -60,7 +60,6 @@ img {
     overflow: hidden;
     height: 20m;
     word-wrap: normal;
-    cursor: pointer;
 }
 
 .card_content {
@@ -69,6 +68,7 @@ img {
     justify-content: space-between;
     padding: 1rem;
     background: var(--background-color1);
+    color: var(--foreground-color1);
     height: 100%;
 }
 
@@ -79,7 +79,6 @@ img {
 }
 
 .card_title {
-  color: #ffffff;
   width: 30%;
   font-size: 1.8em;
   font-weight: 700;
@@ -89,8 +88,7 @@ img {
 }
 
 .card_price {
-    color: #ffffff;
-    width: 30%;
+    width: 50%;
     font-size: 1.5em;
     font-weight: 700;
     letter-spacing: 1px;
@@ -99,7 +97,6 @@ img {
   }
 
 .card_text {
-  color: #ffffff;
   width: 30%;
   font-size: 1.5em;
   line-height: 1.5;
