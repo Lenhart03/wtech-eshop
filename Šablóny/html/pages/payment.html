@@ -63,6 +63,28 @@
             <p><b>Platba</b></p>
         </div>
         <div class="row">
+            <div class="summary">
+                <h5>Zhrnutie objednávky</h5>
+                <div class="row">
+                    <div class="col">
+                        <ul id="orderlist">
+                            <li><span class="name">Ryzen 5 5700X</span></li>
+                            <li><span class="name">RTX 3070 8gb</span></li>
+                            <li><span class="name">Samsung 980 PRO 1TB</span></li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <ul id="pricelist">
+                            <li><span class="price">183.99 €</span></li>
+                            <li><span class="price">1068.99 €</span></li>
+                            <li><span class="price">98.90 €</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <h5>Celková suma: <span id="total"></span></h5>
+            </div>
+        </div>
+        <div class="row">
             <form action="confirmation.html">
                 <div class="row">
                     <div class="col-lg-12 box">
@@ -91,6 +113,19 @@
         <a href="index.html" class="mid">pcpartshop</a>
         <a href="about.html" class="side" id="about">O NÁS</a>
     </div>
+
+    <script>/* suma ceny produktov*/
+        window.onload = function() {
+            var total = 0;
+            var prices = document.getElementsByClassName('price');
+    
+            for (var i = 0; i < prices.length; i++) {
+                var price = parseFloat(prices[i].textContent.replace(' €', ''));
+                total += price;
+            }
+            document.getElementById('total').textContent = total.toFixed(2) + ' €';
+        }
+    </script>
 
 </body>
 

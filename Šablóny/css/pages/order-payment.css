@@ -46,11 +46,28 @@ input[type="submit"] {
 .box {
     padding: 20px;
     background-color: var(--background-color2);
-    margin: 15px 10px;
+    margin: 15px 0px;
     display: flex;
     flex-direction: row;
     justify-content: left;
     align-items: center;
     gap: 20px;
     border-radius: 10px;
+}
+
+.summary {
+    background-color: var(--background-color2);
+    border-radius: 10px;
+    gap: 10px;
+    padding: 10px;
+}
+
+
+#pricelist {
+    list-style-type: none;
+    text-align: right;
+}
+
+#total {
+    text-align: right;
 }
