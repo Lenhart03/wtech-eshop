@@ -5,34 +5,7 @@ h1 {
     text-align: center;
 }
 
-img {
-  height: auto;
-  max-width: 100%;
-  vertical-align: middle;
-}
 
-.btn:hover {
-    box-shadow: 0px 2px 40px #888888aa;
-}
-.btn {
-  color: #ffffff;
-  background-color: var(--secondary-color);
-  padding: 0.8rem;
-  font-size: 14px;
-  text-transform: uppercase;
-  border-radius: 50px;
-  font-weight: 400;
-  display: block;
-  cursor: pointer;
-  border: 1px solid rgb(255, 255, 255);
-
-  transition: 300ms;
-
-}
-
-.btn:hover {
-  background-color: rgb(255, 255, 255);
-}
 
 .cards {
     height: 1m;
@@ -58,7 +31,7 @@ img {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    height: 20m;
+    height: 100%;
     word-wrap: normal;
 }
 
@@ -79,8 +52,8 @@ img {
 }
 
 .card_title {
-  width: 30%;
-  font-size: 1.8em;
+  width: 100%;
+  font-size: 1.5em;
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: capitalize;
@@ -88,17 +61,16 @@ img {
 }
 
 .card_price {
-    width: 50%;
+    width: 70%;
     font-size: 1.5em;
     font-weight: 700;
     letter-spacing: 1px;
-    text-transform: capitalize;
     margin: 0px;
   }
 
 .card_text {
-  width: 30%;
-  font-size: 1.5em;
+  width: 100%;
+  font-size: 1em;
   line-height: 1.5;
   margin-bottom: 1.25rem;    
   font-weight: 400;
@@ -119,24 +91,11 @@ img {
     width: 700px;
 }
 
-.pagination{
-    margin: 20px auto;
-}
-.page-link{
-    color: #ffffff;
-    background-color: #555555;
-    cursor: pointer;
-}
+
 
 @media (max-width: 700px) {
     .card_title {
         font-size: 1.5em;
-    }
-    .card_price {
-        font-size: 1em;
-    }
-    .card_text {
-        font-size: 1em;
     }
     .cards-action{
         width: 100%;

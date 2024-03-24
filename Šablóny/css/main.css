@@ -98,6 +98,39 @@ input[type=number] {
 
 
 
+img {
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+.btn:hover {
+    box-shadow: 0px 2px 40px #888888aa;
+    background-color: rgb(255, 255, 255);
+}
+.btn {
+    color: #ffffff;
+    background-color: var(--secondary-color);
+    padding: 0.8rem;
+    font-size: 14px;
+    text-transform: uppercase;
+    border-radius: 50px;
+    font-weight: 400;
+    display: block;
+    cursor: pointer;
+    border: 1px solid rgb(255, 255, 255);
+    transition: 300ms;
+}
+
+.pagination{
+    margin: 20px auto;
+}
+.page-link{
+    color: #ffffff;
+    background-color: #555555;
+    cursor: pointer;
+}
+
 ::-webkit-scrollbar {
     width: 11px;
     position: absolute;
