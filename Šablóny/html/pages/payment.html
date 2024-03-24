@@ -63,18 +63,34 @@
             <p><b>Platba</b></p>
         </div>
         <div class="row">
+            <script>
+                function showCardForm(bool) {
+                    if (bool) {
+                        document.getElementById("card-form").classList.remove('hide');
+                        for (let e of document.querySelectorAll("#card-form input")) {
+                            e.required = true;
+                        }
+                    }
+                    else {
+                        document.getElementById("card-form").classList.add('hide');
+                        for (let e of document.querySelectorAll("#card-form input")) {
+                            e.required = false;
+                        }
+                    }
+                }
+            </script>
             <form action="confirmation.html">
                 <div class="row">
                     <div class="col-lg-12 box">
-                        <input type="radio" name="sposob-platby" value="dobierkou" id="dobierkou" required>
+                        <input type="radio" name="sposob-platby" value="dobierkou" id="dobierkou" required onchange="showCardForm(false)">
                         <label for="dobierkou">Dobierkov + 0,80 €</label>
                     </div>
                     <div class="col-lg-12 box">
-                        <input type="radio" name="sposob-platby" value="kartou" id="kartou" required>
+                        <input type="radio" name="sposob-platby" value="kartou" id="kartou" required onchange="showCardForm(true)">
                         <label for="kartou">Online kartou</label>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row hide" id="card-form">
                     <div class="col-lg-6"><input type="text" name="cislo-karty" placeholder="Číslo karty" required></div>
                     <div class="col-lg-4"><input type="text" name="datum-platnosti" placeholder="Dátum platnosti" required></div>
                     <div class="col-lg-2"><input type="text" name="cw" placeholder="CW" required></div>
