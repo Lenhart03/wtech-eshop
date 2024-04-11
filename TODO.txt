@@ -1,2 +1,0 @@
-dorobit searchbar a breadcrumbs v navbar
-automatizovat navbar varianty
