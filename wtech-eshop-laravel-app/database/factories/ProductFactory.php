@@ -32,25 +32,28 @@ class ProductFactory extends Factory
 
         $productTypes = ['CPU', 'GPU', 'Motherboard', 'disk', 'case','ram','power supply','cooler'];
 
+        $productType = $this->faker->randomElement($productTypes);
         $productBrand = $this->faker->randomElement($brands);
-        $productName = $this->getName($productTypes, $productBrand);
-        $description = $this->getDescription($productName, $productBrand);
+        $productName = $this->getName($productType, $productBrand);
+        $description = $this->getDescription($productType, $productBrand);
         
 
         return [
-            'name' => $productName.'$this->faker->numberBetween(1, 1000)',
+            'name' => $productName,
             'description' => $description,
             'price' => $this->faker->randomFloat(2, 1, 1000),
             'count' => $this->faker->numberBetween(0, 100),
-            'search_keys' => $this->faker->words(5, true),
+            'search_keys' => $productType,
             'brand' => $productBrand,
         ];
     }
 
-    private function getName($productTypes, $productBrand)
+    private function getName($productType, $productBrand)
     {
-        $productName = $this->faker->randomElement($productTypes);
+        $productName = $productType;
 
+
+        
         switch ($productName) {
             case 'CPU':
                 if ($productBrand == 'Intel') {
@@ -75,7 +78,7 @@ class ProductFactory extends Factory
                                                     'RX 6500 xt','RX 6600 xt','RX 6700 xt','RX 6800 xt',
                                                     'RX 7500','RX 7600','RX 7700','RX 7800',
                                                     'RX 7500 xt','RX 7600 xt','RX 7700 xt','RX 7800 xt'])
-                                                    . ' ' . $productBrand . $this->faker->numberBetween(1,40). 'GB';
+                                                    . ' ' . $productBrand . ' ' . $this->faker->numberBetween(1,40). 'GB';
             case 'ram':
                 return $productName . ' ' . $this->faker->numberBetween(4, 64) . 'GB ' . $this->faker->randomElement(['DDR3', 'DDR4', 'DDR5']);
             default:
@@ -88,9 +91,9 @@ class ProductFactory extends Factory
         switch ($productName) {
             case 'CPU':
                 return 'Processor ' . $this->faker->numberBetween(1, 64) . '-jadrový, ' . 
-                $this->faker->numberBetween(1, 128) . ' vlákien,' . $this->faker->randomFloat(2, 1, 5) . ' GHz'.
-                $this->faker->randomFloat(2,1,5).' GHz boost' . $this->faker->numberBetween(1, 64) . ' MB L3 cache'.
-                $this->faker->randomElement(['Bez', 's']) . ' integrovaným grafickým čipom';
+                $this->faker->numberBetween(1, 128) . ' vlákien, ' . $this->faker->randomFloat(2, 1, 5) . ' GHz, '.
+                $this->faker->randomFloat(2,1,5).' GHz boost, ' . $this->faker->numberBetween(1, 64) . ' MB L3 cache, '.
+                $this->faker->randomElement(['Bez integrovaného grafického čipu', 'S integrovaným grafickým čipom']);
             case 'GPU':
                 return 'Grafická karta - ' . $this->faker->numberBetween(2, 16) . 'GB VRAM ' . 
                 $this->faker->randomElement(['GDDR5', 'GDDR6']) . ' (' .
@@ -103,7 +106,7 @@ class ProductFactory extends Factory
                 $this->faker->randomElement(['ATX', 'Micro ATX', 'Mini ITX']) . ' formát';
             case 'disk':
                 return 'Pevný disk ' . $this->faker->numberBetween(10, 2048) . ' GB úložiska, '.
-                $this->faker->randomElement(['HDD', 'SSD', 'NVMe']) . ', rýchlosť' . $this->faker->numberBetween(500, 5000) . ' MB/s';
+                $this->faker->randomElement(['HDD', 'SSD', 'NVMe']) . ', rýchlosť ' . $this->faker->numberBetween(500, 5000) . ' MB/s';
             case 'case':
                 return 'PC skiňa ' . $this->faker->randomElement(['ATX', 'Micro ATX', 'Mini ITX']) . ', '.
                 $this->faker->numberBetween(1, 5) . 'x 2.5" slotov, ' . $this->faker->numberBetween(1, 5) . 'x 3.5" slotov, ' .
@@ -112,7 +115,7 @@ class ProductFactory extends Factory
                 return 'Operačná pamäť ' . $this->faker->numberBetween(4, 64) . ' GB, ' . $this->faker->numberBetween(2000, 5000) . ' MHz, ' .
                 $this->faker->randomElement(['DDR3', 'DDR4', 'DDR5']);
             case 'power supply':
-                return 'PC zdroj ' . $this->faker->numberBetween(300, 1000) . 'W'.
+                return 'PC zdroj ' . $this->faker->numberBetween(300, 1000) . 'W, '.
                 $this->faker->randomElement(['ATX', 'Micro ATX', 'Mini ITX']) . ' formát';
             case 'cooler':
                 return 'Chladič ' . $this->faker->numberBetween(100, 4000) . ' RPM';
