@@ -1,0 +1,34 @@
+.main-footer {
+    background-color: var(--background-color1);
+    width: 100%;
+    height: 72px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    float: bottom;
+    margin-top: 10px;
+}
+.main-footer .side {
+    margin: 10px 25px;
+    font-size: 24px;
+    font-weight: 300;
+    width: 130px;
+    text-align: center;
+}
+.main-footer .mid {
+    margin: 10px 20px;
+    font-size: 36px;
+    font-weight: normal;
+}
+
+.main-footer .about {
+    text-align: center;
+    word-wrap: nowrap;
+    min-width: 80px;
+}
+@media (max-width: 560px) {
+    .main-footer {
+        flex-direction: column;
+    }
+}

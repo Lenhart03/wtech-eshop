@@ -1,0 +1,13 @@
+.contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+.city {
+    font-weight: 700;
+}
+.email {
+    margin-bottom: 4rem;
+}
