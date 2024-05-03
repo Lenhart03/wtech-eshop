@@ -89,7 +89,9 @@
         <ul class="cards cards-action">
             <li class="cards_item">
                 <div class="card">
-                    <div class="card_image"><a href="detail.html"><img src="../../placeholders/file.svg"></a></div>
+                    @if($firstProduct->images->first())
+                        <div class="card_image"><a href="detail.html"><img src="{{ asset($firstProduct->images->first()->path) }}"></a></div>
+                    @endif
                     <div class="card_content">
                         <h2 class="card_title">{{ $firstProduct->name }}</h2>
                         <p class="card_text">{{ $firstProduct->description }}</p>
@@ -108,7 +110,9 @@
             @foreach ($products as $product)
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="card">
-                        <div class="card_image"><a href="detail.html"><img src="../../placeholders/file.svg"></a></div>
+                        @if($product->images->first())
+                            <div class="card_image"><a href="detail.html"><img src="{{ asset($product->images->first()->path) }}"></a></div>
+                        @endif
                         <div class="card_content">
                             <h2 class="card_title">{{ $product->name }}</h2>
                             <p class="card_text">{{ $product->description }}</p>

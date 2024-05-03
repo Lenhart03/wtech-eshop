@@ -17,6 +17,6 @@ use App\Models\Product;
 
 
 Route::get('/', function () {
-    $products = App\Models\Product::paginate(19)->onEachSide(1);
+    $products = App\Models\Product::with('images')->paginate(19);
     return view('mainpage', ['products' => $products]);
 });
