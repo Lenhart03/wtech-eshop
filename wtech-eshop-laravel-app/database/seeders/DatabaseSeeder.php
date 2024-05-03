@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 
 use App\Models\Product;
 use App\Models\Parameter;
+use App\Models\image;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,7 +19,7 @@ class DatabaseSeeder extends Seeder
     
     public function run()
     {
-        $products = Product::factory(100)->create();
+        $products = Product::factory(1000)->create();
 
         foreach ($products as $product) {
             $descriptionArray = explode(',', $product->description);
@@ -34,6 +35,12 @@ class DatabaseSeeder extends Seeder
                         ['name' => 'Model', 'value' => $product->name],
                         ['name' => 'TDP', 'value' => rand(35, 200).' W'],
                         ['name' => 'Socket', 'value' => $arr[array_rand($arr)]],
+                    ];
+                    $images=[
+                        ['path'=>'storage/app/public/dbimages/cpu-4393383_1280.jpg'],
+                        ['path'=>'storage/app/public/dbimages/cpu-4393384_1280.jpg'],
+                        ['path'=>'storage/app/public/dbimages/cpu-4393383_1280.jpg'],
+                        ['path'=>'storage/app/public/dbimages/cpu-4393384_1280.jpg'],
                     ];
                     break;
                 case 'GPU':
@@ -51,6 +58,12 @@ class DatabaseSeeder extends Seeder
                         ['name' => 'Šírka', 'value' => rand(100, 400).' mm'],
                         ['name' => 'Výška', 'value' => rand(30, 100).' mm'],
                         ['name' => 'Hĺbka', 'value' => rand(50, 300).' mm'],
+                    ];
+                    $images=[
+                        ['path'=>'storage/app/public/dbimages/gpu-1316015_1280.jpg'],
+                        ['path'=>'storage/app/public/dbimages/graphics-card-6995934_1280.jpg'],
+                        ['path'=>'storage/app/public/dbimages/gpu-1316015_1280.jpg'],
+                        ['path'=>'storage/app/public/dbimages/graphics-card-6995934_1280.jpg'],
                     ];
                     break;
                 case 'Motherboard':
@@ -70,6 +83,12 @@ class DatabaseSeeder extends Seeder
                         ['name' => 'M.2 sloty', 'value' => rand(1, 3)],
                         ['name' => 'SATA porty', 'value' => rand(2, 8)],
                     ];
+                    $images=[
+                        ['path'=>'storage/app/public/dbimages/cpu-4393375_1280.jpg'],
+                        ['path'=>'storage/app/public/dbimages/motherboard-2202269_1280.jpg'],
+                        ['path'=>'storage/app/public/dbimages/cpu-4393375_1280.jpg'],
+                        ['path'=>'storage/app/public/dbimages/motherboard-2202269_1280.jpg'],
+                    ];
                     break;
                 case 'disk':
                     $arr=['HDD', 'SSD', 'NVMe'];
@@ -79,6 +98,12 @@ class DatabaseSeeder extends Seeder
                         ['name' => 'Rýchlosť', 'value' => rand(500, 5000).' MB/s'],
                         ['name' => 'Výrobca', 'value' => $product->brand],
                         ['name' => 'Model', 'value' => $product->name],
+                    ];
+                    $images=[
+                        ['path'=>'storage/app/public/dbimages/hard-drive-503962_1280.jpg'],
+                        ['path'=>'storage/app/public/dbimages/hdd-154463_1280.jpg'],
+                        ['path'=>'storage/app/public/dbimages/hard-drive-503962_1280.jpg'],
+                        ['path'=>'storage/app/public/dbimages/hdd-154463_1280.jpg'],
                     ];
                     break;
                 case 'case':
@@ -92,6 +117,12 @@ class DatabaseSeeder extends Seeder
                         ['name' => 'Výrobca', 'value' => $product->brand],
                         ['name' => 'Model', 'value' => $product->name],
                     ];
+                    $images=[
+                        ['path'=>'storage/app/public/dbimages/anthony-roberts-fMbiAi0rbkA-unsplash.jpg'],
+                        ['path'=>'storage/app/public/dbimages/anthony-roberts-FtP3ZM6hmNM-unsplash.jpg'],
+                        ['path'=>'storage/app/public/dbimages/anthony-roberts-fMbiAi0rbkA-unsplash.jpg'],
+                        ['path'=>'storage/app/public/dbimages/anthony-roberts-FtP3ZM6hmNM-unsplash.jpg'],
+                    ];
                     break;
                 case 'ram':
                     $arr=['DDR3', 'DDR4', 'DDR5'];
@@ -102,6 +133,12 @@ class DatabaseSeeder extends Seeder
                         ['name' => 'Výrobca', 'value' => $product->brand],
                         ['name' => 'Model', 'value' => $product->name],
                     ];
+                    $images=[
+                        ['path'=>'storage/app/public/dbimages/memory-4704236_1280.jpg'],
+                        ['path'=>'storage/app/public/dbimages/memory-4704236_1280.jpg'],
+                        ['path'=>'storage/app/public/dbimages/memory-4704236_1280.jpg'],
+                        ['path'=>'storage/app/public/dbimages/memory-4704236_1280.jpg'],
+                    ];
                     break;
                 case 'power supply':
                     $arr=['ATX', 'Micro ATX', 'Mini ITX'];
@@ -111,12 +148,24 @@ class DatabaseSeeder extends Seeder
                         ['name' => 'Výrobca', 'value' => $product->brand],
                         ['name' => 'Model', 'value' => $product->name],
                     ];
+                    $images=[
+                        ['path'=>'storage/app/public/dbimages/power-5209513_1280.jpg'],
+                        ['path'=>'storage/app/public/dbimages/power-5209513_1280.jpg'],
+                        ['path'=>'storage/app/public/dbimages/power-5209516_1280.jpg'],
+                        ['path'=>'storage/app/public/dbimages/power-5209516_1280.jpg'],
+                    ];
                     break;
                 case 'cooler':
                     $parameters = [
                         ['name' => 'Rýchlosť', 'value' => rand(100, 4000).' RPM'],
                         ['name' => 'Výrobca', 'value' => $product->brand],
                         ['name' => 'Model', 'value' => $product->name],
+                    ];
+                    $images=[
+                        ['path'=>'storage/app/public/dbimages/cooling-fan-7270527_1280.jpg'],
+                        ['path'=>'storage/app/public/dbimages/computer-8129434_1280.jpg'],
+                        ['path'=>'storage/app/public/dbimages/cooling-fan-7270527_1280.jpg'],
+                        ['path'=>'storage/app/public/dbimages/computer-8129434_1280.jpg'],
                     ];
                     break;
                 
@@ -127,6 +176,12 @@ class DatabaseSeeder extends Seeder
                     'product_id' => $product->id,
                     'name' => $parameter['name'],
                     'value' => $parameter['value'],
+                ]);
+            }
+            foreach ($images as $image) {
+                image::create([
+                    'product_id' => $product->id,
+                    'path' => $image['path'],
                 ]);
             }
         }

@@ -20,7 +20,7 @@
 <body>
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid container-navbar">
-            <a class="navbar-logo" href="../../html/pages/index.html"><img src="{{ asset('resources/images/logo.png')}}" alt="logo"></a>
+            <a class="navbar-logo" href="../../html/pages/index.html"><img src="{{ asset('storage/app/public/images/logo.png')}}" alt="logo"></a>
             <form class="searchbar" role="search" action="search.html">
               <input name="key" placeholder="Vyhľadávanie" />
             </form>
@@ -123,17 +123,9 @@
         </div>
     </div>
 
-
-    <nav>
-        <ul class="pagination justify-content-center">
-          <li class="page-number"><a class="page-link">Predošlá</a></li>
-          <li class="page-number"><a class="page-link">1</a></li>
-          <li class="page-number"><a class="page-link">2</a></li>
-          <li class="page-number"><a class="page-link">3</a></li>
-          <li class="page-number"><a class="page-link">Ďalšia</a></li>
-        </ul>
+    <nav class="d-flex justify-content-center">
+        {{ $products->links() }}
     </nav>
-    
 
       
     <div class="main-footer">
