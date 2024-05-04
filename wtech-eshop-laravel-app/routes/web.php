@@ -20,3 +20,8 @@ Route::get('/', function () {
     $products = App\Models\Product::with('images')->paginate(19);
     return view('mainpage', ['products' => $products]);
 });
+
+Route::get('/detail/{id}', function ($id) {
+    $product = App\Models\Product::with('images','parameters')->find($id);
+    return view('detail', ['product' => $product]);
+})->name('detail');

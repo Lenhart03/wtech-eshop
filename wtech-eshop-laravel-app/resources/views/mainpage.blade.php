@@ -13,40 +13,10 @@
 
     <link rel="stylesheet" href="{{ asset('resources/css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('resources/css/pages/index.css') }}">
-    <link rel="stylesheet" href="{{ asset('resources/css/components/navbar.css') }}">
-    <link rel="stylesheet" href="{{ asset('resources/css/components/main_footer.css') }}">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid container-navbar">
-            <a class="navbar-logo" href="../../html/pages/index.html"><img src="{{ asset('storage/app/public/images/logo.png')}}" alt="logo"></a>
-            <form class="searchbar" role="search" action="search.html">
-              <input name="key" placeholder="Vyhľadávanie" />
-            </form>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav navbar-loginregister mb-2 mb-lg-0">
-                <li class="nav-item shoping-cart">
-                <a href="cart.html" id="cart-button" class="button navbar-cart" data-toggle="tooltip" data-placement="bottom" title="Košík">
-                    <i class="material-icons">shopping_cart</i>
-                    <span id="items-in-cart" style="position:absolute; font-size: 16px; min-width: 45px; text-align: center; margin-right: 40px;">0</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="login.html" class="btn login-button" type="submit">Prihlasenie</a>
-            </li>
-            <li class="nav-item">
-                <a href="register.html" class="btn register-button" type="submit">Registracia</a>
-            </li>
-                
-            </ul>
-            
-        </div>
-      </div>
-    </nav>
+    @include('components.navbar')
 
 
 
@@ -89,15 +59,17 @@
         <ul class="cards cards-action">
             <li class="cards_item">
                 <div class="card">
-                    @if($firstProduct->images->first())
-                        <div class="card_image"><a href="detail.html"><img src="{{ asset($firstProduct->images->first()->path) }}"></a></div>
-                    @endif
+                    <div class="card_image"><a href="{{ route('detail', ['id' => $firstProduct->id]) }}"><img src="{{ asset('storage/app/public/dbimages/'.$firstProduct->images->first()->image) }}"></a></div>
                     <div class="card_content">
-                        <h2 class="card_title">{{ $firstProduct->name }}</h2>
+                        <h2 class="card_title">
+                            <a class="card_title" href="{{ route('detail', ['id' => $firstProduct->id]) }}">
+                                {{ $firstProduct->name }}
+                            </a>
+                        </h2>
                         <p class="card_text">{{ $firstProduct->description }}</p>
                         <div class="price_and_button">
                             <h3 class="card_price">{{ $firstProduct->price }} €</h3>
-                            <button class="btn card_btn">Kúpiť</button>
+                            <a href="{{ route('detail', ['id' => $firstProduct->id]) }}" class="btn card_btn">Kúpiť</a>
                         </div>
                     </div>
                 </div>
@@ -110,15 +82,17 @@
             @foreach ($products as $product)
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="card">
-                        @if($product->images->first())
-                            <div class="card_image"><a href="detail.html"><img src="{{ asset($product->images->first()->path) }}"></a></div>
-                        @endif
+                        <div class="card_image"><a href="{{ route('detail', ['id' => $product->id]) }}"><img src="{{ asset('storage/app/public/dbimages/'.$product->images->first()->image) }}"></a></div>
                         <div class="card_content">
-                            <h2 class="card_title">{{ $product->name }}</h2>
+                            <h2 class="card_title">
+                                <a class="card_title" href="{{ route('detail', ['id' => $product->id]) }}">
+                                    {{ $product->name }}
+                                </a>
+                            </h2>
                             <p class="card_text">{{ $product->description }}</p>
                             <div class="price_and_button">
                                 <h3 class="card_price">{{ $product->price }} €</h3>
-                                <button class="btn card_btn">Kúpiť</button>
+                                <a href="{{ route('detail', ['id' => $product->id]) }}" class="btn card_btn">Kúpiť</a>
                             </div>
                         </div>
                     </div>
@@ -132,11 +106,7 @@
     </nav>
 
       
-    <div class="main-footer">
-        <a href="contact.html" class="side" id="contact">KONTAKTY</a>
-        <a href="index.html" class="mid">pcpartshop</a>
-        <a href="about.html" class="side" id="about">O NÁS</a>
-    </div>
+    @include('components.mainfooter')
 
 </body>
 

@@ -43,7 +43,7 @@ class ProductFactory extends Factory
             'description' => $description,
             'price' => $this->faker->randomFloat(2, 1, 1000),
             'count' => $this->faker->numberBetween(0, 100),
-            'search_keys' => $productType,
+            'category' => $productType,
             'brand' => $productBrand,
         ];
     }
