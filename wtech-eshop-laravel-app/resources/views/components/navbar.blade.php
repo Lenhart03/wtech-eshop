@@ -2,8 +2,8 @@
 
 <nav class="navbar navbar-expand-lg">
     <div class="container-fluid container-navbar">
-            <a class="navbar-logo" href="../../html/pages/index.html"><img src="{{ asset('storage/app/public/images/logo.png')}}" alt="logo"></a>
-            <form class="searchbar" role="search" action="search.html">
+            <a class="navbar-logo" href="{{ url('/') }}"><img src="{{ asset('storage/app/public/images/logo.png')}}" alt="logo"></a>
+            <form class="searchbar" role="search" method="GET" action="{{ url('/search') }}">
                 <input name="key" placeholder="Vyhľadávanie" />
             </form>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\Product;
+use Illuminate\Support\Facades\DB;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,19 @@ Route::get('/detail/{id}', function ($id) {
     $product = App\Models\Product::with('images','parameters')->find($id);
     return view('detail', ['product' => $product]);
 })->name('detail');
+
+
+
+
+Route::get('/search', function () {
+    $keyword = '%' . strtolower(request('key')) . '%';
+    $products = App\Models\Product::whereRaw('LOWER(name) LIKE ?', [$keyword])
+                            ->orWhereRaw('LOWER(description) LIKE ?', [$keyword])
+                            ->orWhereRaw('LOWER(brand) LIKE ?', [$keyword])
+                            ->orWhereRaw('LOWER(category) LIKE ?', [$keyword])
+                            ->paginate(10);
+    return view('search', ['products' => $products, 'keyword' => request('key')]);
+})->name('search');
+
+
+

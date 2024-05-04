@@ -92,6 +92,8 @@
     margin-top: 1000px;
 }
 
+
+
 /* Larger than mobile */
 @media (min-width: 400px) {
     #search-results .product-item {
