@@ -87,13 +87,13 @@
                                         <option value="DDR5" {{ request('ram-type') == 'DDR5' ? 'selected' : '' }}>DDR5</option>
                                     </select>
                                 @endif
-                                @if($category == 'Motherboard')
+                                @if($category == 'Motherboard' or $category == 'power supply' or $category == 'case')
                                     <p>Formát</p>
-                                    <select name="MBformat" id="MBformat" onchange="this.form.submit()">
+                                    <select name="format" id="format" onchange="this.form.submit()">
                                         <option value=""></option>
-                                        <option value="ATX" {{ request('MBformat') == 'ATX' ? 'selected' : '' }}>ATX</option>
-                                        <option value="Micro ATX" {{ request('MBformat') == 'Micro ATX' ? 'selected' : '' }}>Micro ATX</option>
-                                        <option value="Mini ITX" {{ request('MBformat') == 'Mini ITX' ? 'selected' : '' }}>Mini ITX</option>
+                                        <option value="ATX" {{ request('format') == 'ATX' ? 'selected' : '' }}>ATX</option>
+                                        <option value="Micro ATX" {{ request('format') == 'Micro ATX' ? 'selected' : '' }}>Micro ATX</option>
+                                        <option value="Mini ITX" {{ request('format') == 'Mini ITX' ? 'selected' : '' }}>Mini ITX</option>
                                     </select>
                                 @endif
                             </div>

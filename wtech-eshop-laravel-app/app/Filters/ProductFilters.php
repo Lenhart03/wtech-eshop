@@ -51,8 +51,8 @@ class ProductFilters
             });
         }
 
-        if ($request->filled('MBformat')){
-            $format = $request->input('MBformat');
+        if ($request->filled('format')){
+            $format = $request->input('format');
             $query->wherehas('parameters', function ($query) use ($format) {
                 $query->where('name', 'Formát')->where('value', $format);
             });
