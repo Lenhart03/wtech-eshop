@@ -58,10 +58,44 @@
                                 <input type="number" name="max_price" id="max_price" value="{{ request('max_price') }}" onchange="this.form.submit()">
                             </div>
                             <div class="row filter">
-                                <p>Param2</p>
-                                <select name="param2" id="param2" onchange="this.form.submit()">
-                                    <!-- Add your options here -->
-                                </select>
+                                @if($category == 'CPU')
+                                    <p>Počet jadier</p>
+                                    <select name="cpu-cores" id="cpu-cores" onchange="this.form.submit()">
+                                        <option value=""></option>
+                                        <option value="2" {{ request('cpu-cores') == '2' ? 'selected' : '' }}>2</option>
+                                        <option value="4" {{ request('cpu-cores') == '4' ? 'selected' : '' }}>4</option>
+                                        <option value="6" {{ request('cpu-cores') == '6' ? 'selected' : '' }}>6</option>
+                                        <option value="8" {{ request('cpu-cores') == '8' ? 'selected' : '' }}>8</option>
+                                        <option value="12" {{ request('cpu-cores') == '12' ? 'selected' : '' }}>12</option>
+                                        <option value="16" {{ request('cpu-cores') == '16' ? 'selected' : '' }}>16</option>
+                                        <option value="32" {{ request('cpu-cores') == '32' ? 'selected' : '' }}>32</option>
+                                        <option value="64" {{ request('cpu-cores') == '64' ? 'selected' : '' }}>64</option>
+                                    </select>
+                                @endif
+                                @if($category == 'GPU')
+                                    <p>Veľkosť pamäte (GB)</p>
+                                    <p></p>
+                                    <input type="number" name="min_mem" id="min_mem" placeholder="Od" value="{{ request('min_mem') }}" onchange="this.form.submit()">
+                                    <input type="number" name="max_mem" id="max_mem" placeholder="Do" value="{{ request('max_mem') }}" onchange="this.form.submit()">
+                                @endif
+                                @if($category == 'ram')
+                                    <p>Typ pamäte</p>
+                                    <select name="ram-type" id="ram-type" onchange="this.form.submit()">
+                                        <option value=""></option>
+                                        <option value="DDR3" {{ request('ram-type') == 'DDR3' ? 'selected' : '' }}>DDR3</option>
+                                        <option value="DDR4" {{ request('ram-type') == 'DDR4' ? 'selected' : '' }}>DDR4</option>
+                                        <option value="DDR5" {{ request('ram-type') == 'DDR5' ? 'selected' : '' }}>DDR5</option>
+                                    </select>
+                                @endif
+                                @if($category == 'Motherboard')
+                                    <p>Formát</p>
+                                    <select name="MBformat" id="MBformat" onchange="this.form.submit()">
+                                        <option value=""></option>
+                                        <option value="ATX" {{ request('MBformat') == 'ATX' ? 'selected' : '' }}>ATX</option>
+                                        <option value="Micro ATX" {{ request('MBformat') == 'Micro ATX' ? 'selected' : '' }}>Micro ATX</option>
+                                        <option value="Mini ITX" {{ request('MBformat') == 'Mini ITX' ? 'selected' : '' }}>Mini ITX</option>
+                                    </select>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -82,7 +116,7 @@
                                     </a>
                                     <p class="product-name">{{$product->name}}</p>
                                     <div class="row">
-                                        <p class="col-sm-6 product-price">{{$product->price}}</p>
+                                        <p class="col-sm-6 product-price">{{$product->price}} €</p>
                                         <p href="#" class="col-sm-6 button add-to-cart-button">Do košíka</p>
                                     </div>
                                 </div>

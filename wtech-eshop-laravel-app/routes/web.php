@@ -60,5 +60,5 @@ Route::get('/category/{category}', function ($category, ProductFilters $filters)
 
     $brands = App\Models\Product::where('category', $category)->select('brand')->distinct()->get();
 
-    return view('category', ['products' => $products, 'brands'=>$brands]);
+    return view('category', ['products' => $products, 'brands'=>$brands, 'category' => $category]);
 })->name('category');

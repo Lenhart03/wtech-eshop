@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
     
     public function run()
     {
-        $products = Product::factory(100)->create();
+        $products = Product::factory(200)->create();
 
         foreach ($products as $product) {
             $descriptionArray = explode(',', $product->description);
@@ -27,8 +27,9 @@ class DatabaseSeeder extends Seeder
             switch ($product->category) {
                 case 'CPU':
                     $arr=['AM4', 'LGA1200', 'LGA1151', 'TR4'];
+                    $arr1=['2','4','6','8','12','16','32'];
                     $parameters = [
-                        ['name' => 'Počet jadier', 'value' => rand(1,64)],
+                        ['name' => 'Počet jadier', 'value' => $arr1[array_rand($arr1)]],
                         ['name' => 'Frekvencia', 'value' => $descriptionArray[2]],
                         ['name' => 'Boost', 'value' => $descriptionArray[3]],
                         ['name' => 'Výrobca', 'value' => $product->brand],
