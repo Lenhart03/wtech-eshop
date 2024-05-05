@@ -48,3 +48,17 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
+
+
+
+use App\Filters\ProductFilters;
+
+Route::get('/category/{category}', function ($category, ProductFilters $filters) {
+    $query = App\Models\Product::where('category', $category);
+
+    $products = $filters->apply($query, request())->orderBy('price', request('cena', 'asc'))->paginate(12);
+
+    $brands = App\Models\Product::where('category', $category)->select('brand')->distinct()->get();
+
+    return view('category', ['products' => $products, 'brands'=>$brands]);
+})->name('category');

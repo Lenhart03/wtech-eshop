@@ -18,38 +18,7 @@
 <body>
     @include('components.navbar')
 
-
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3 col-sm-6 categories">
-                <a href="products.html" id="procesory" class="btn categories-button">Procesory</a>
-            </div>
-            <div class="col-md-3 col-sm-6 categories">
-                <a href="products.html" id="zakladne_dosky" class="btn categories-button">Základné dosky</a>
-            </div>
-            <div class="col-md-3 col-sm-6 categories">
-                <a href="products.html" id="disky" class="btn categories-button">Disky</a>
-            </div>
-            <div class="col-md-3 col-sm-6 categories">
-                <a href="products.html" id="skrine" class="btn categories-button">Skrine</a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3 col-sm-6 categories">
-                <a href="products.html" id="ram" class="btn categories-button">RAM</a>
-            </div>
-            <div class="col-md-3 col-sm-6 categories">
-                <a href="products.html" id="graficke_karty" class="btn categories-button">Grafické karty</a>
-            </div>
-            <div class="col-md-3 col-sm-6 categories">
-                <a href="products.html" id="zdroje" class="btn categories-button">Zdroje</a>
-            </div>
-            <div class="col-md-3 col-sm-6 categories">
-                <a href="products.html" id="chladice" class="btn categories-button">Chladiče</a>
-            </div>
-        </div>
-    </div>
+    @include('components.categories')
 
     @php
         $firstProduct = $products->shift();

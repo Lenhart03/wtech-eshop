@@ -111,3 +111,14 @@ body > .container {
     border-radius: 10px;
     width: 50%;
 }
+
+.sort input, .sort select{
+    border-radius: 10px;
+    width: 100%;
+}
+
+.background {
+    background-color: var(--background-color3);
+    border-radius: 10px;
+    padding-bottom: 5px;
+}
