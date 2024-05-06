@@ -96,6 +96,21 @@
                                         <option value="Mini ITX" {{ request('format') == 'Mini ITX' ? 'selected' : '' }}>Mini ITX</option>
                                     </select>
                                 @endif
+                                @if($category == 'disk')
+                                    <p>Typ</p>
+                                    <select name="disk_type" id="disk_type" onchange="this.form.submit()">
+                                        <option value=""></option>
+                                        <option value="HDD" {{ request('disk_type') == 'HDD' ? 'selected' : '' }}>HDD</option>
+                                        <option value="SSD" {{ request('disk_type') == 'SSD' ? 'selected' : '' }}>SSD</option>
+                                        <option value="NVMe" {{ request('disk_type') == 'NVMe' ? 'selected' : '' }}>NVMe</option>
+                                    </select>
+                                @endif
+                                @if($category == 'cooler')
+                                    <p>Rýchlosť ventilátora (RPM)</p>
+                                    <p></p>
+                                    <input type="number" name="min_rpm" id="min_rpm" placeholder="Od" value="{{ request('min_rpm') }}" onchange="this.form.submit()">
+                                    <input type="number" name="max_rpm" id="max_rpm" placeholder="Do" value="{{ request('max_rpm') }}" onchange="this.form.submit()">
+                                @endif
                             </div>
                         </div>
                     </div>

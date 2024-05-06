@@ -58,6 +58,28 @@ class ProductFilters
             });
         }
 
+        if ($request->filled('disk_type')){
+            $disk_type = $request->input('disk_type');
+            $query->wherehas('parameters', function ($query) use ($disk_type) {
+                $query->where('name', 'Typ')->where('value', $disk_type);
+            });
+        }
+
+
+        if ($request->filled('min_rpm')) {
+            $min = $request->min_rpm;
+            $query->wherehas('parameters', function ($query) use ($min) {
+                $query->where('name', 'Rýchlosť')->whereRaw('CAST(value AS UNSIGNED) >= ?', $min);
+            });
+        }
+
+        if ($request->filled('max_rpm')) {
+            $max = $request->max_rpm;
+            $query->wherehas('parameters', function ($query) use ($max) {
+                $query->where('name', 'Rýchlosť')->whereRaw('CAST(value AS UNSIGNED) <= ?', $max);
+            });
+        }
+
         return $query;
     }
 }
