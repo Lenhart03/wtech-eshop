@@ -37,4 +37,14 @@ class RegisterController extends Controller
 
         return redirect('/')->with('message', 'User logged out');
     }
+
+    public function login(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        if (auth()->attempt($credentials)) {
+            $request->session()->regenerate();
+            return redirect('/')->with('message', 'User logged in');
+        }
+    }
 }

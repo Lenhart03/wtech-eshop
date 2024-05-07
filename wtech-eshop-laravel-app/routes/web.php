@@ -71,3 +71,9 @@ Route::get('/register', function () {
 Route::post('/register', [RegisterController::class, 'store']);
 
 Route::post('/logout', [RegisterController::class, 'logout'])->name('logout');
+
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
+
+Route::post('/login', [RegisterController::class, 'login']);
