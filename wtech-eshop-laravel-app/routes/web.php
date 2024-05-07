@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
-
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,3 +62,10 @@ Route::get('/category/{category}', function ($category, ProductFilters $filters)
 
     return view('category', ['products' => $products, 'brands'=>$brands, 'category' => $category]);
 })->name('category');
+
+
+Route::get('/register', function () {
+    return view('register');
+})->name('register');
+
+Route::post('/register', [RegisterController::class, 'store']);

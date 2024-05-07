@@ -21,7 +21,7 @@
                     <a href="login.html" class="btn login-button" type="submit">Prihlasenie</a>
                 </li>
                 <li class="nav-item">
-                    <a href="register.html" class="btn register-button" type="submit">Registracia</a>
+                    <a href="{{route('register')}}" class="btn register-button" type="submit">Registracia</a>
                 </li>
             
             </ul>
