@@ -12,7 +12,7 @@
     font-size: 40px;
     font-weight: bold;
 }
-#register-form input[type=text], #register-form input[type=password] {
+#register-form input[type=text], #register-form input[type=password], #register-form input[type=password_confirmation]{
     border: 3px solid var(--secondary-color);
     border-radius: 10px;
     width: 100%;

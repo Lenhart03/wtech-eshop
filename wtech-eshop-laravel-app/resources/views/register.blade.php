@@ -44,14 +44,30 @@
             <div class="row">
                 <div class="col">
                     <input type="text" class="form-control" name="firstname" placeholder="Meno" required value="" />
+                    @error('firstname')
+                        <p class="text-red-500 text-xs"> {{ $message }}</p>
+                    @enderror
                 </div>
                 <div class="col">
-                    <input type="text" class="form-control" name="lastname" placeholder="Priezovisko" required value="" />
+                    <input type="text" class="form-control" name="lastname" placeholder="Priezvisko" required value="" />
+                    @error('lastname')
+                        <p class="text-red-500 text-xs"> {{ $message }}</p>
+                    @enderror
                 </div>
             </div>
             <input type="text" class="form-control" name="email" placeholder="Email" required value="" />
-            <input type="password" class="form-control" name="pword" placeholder="Heslo" required value=""/>
-            <input type="password" class="form-control" name="pword2" placeholder="Potvrdiť heslo" required value=""/>
+            @error('email')
+                <p class="text-red-500 text-xs"> {{ $message }}</p>
+            @enderror
+            <input type="password" class="form-control" name="password" placeholder="Heslo" required value=""/>
+            @error('pword')
+                <p class="text-red-500 text-xs"> {{ $message }}</p>
+            @enderror
+            <input type="password" class="form-control" name="password_confirmation" placeholder="Potvrdiť heslo" required value=""/>
+
+            @error('password_confirmation')
+                <p class="text-red-500 text-xs"> {{ $message }}</p>
+            @enderror
 
             <div id="policy">
                 <p>Kliknutím na Registrovať súhlasíte s našimi</p>
