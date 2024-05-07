@@ -124,6 +124,7 @@ img {
 
 .pagination{
     margin: 20px auto;
+    flex-wrap: wrap;
 }
 .page-link{
     color: #ffffff;

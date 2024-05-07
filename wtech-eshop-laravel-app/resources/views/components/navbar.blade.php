@@ -17,12 +17,22 @@
                     <span id="items-in-cart" style="position:absolute; font-size: 16px; min-width: 45px; text-align: center; margin-right: 40px;">0</span>
                 </a>
                 </li>
-                <li class="nav-item">
-                    <a href="login.html" class="btn login-button" type="submit">Prihlasenie</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{route('register')}}" class="btn register-button" type="submit">Registracia</a>
-                </li>
+
+                @auth
+                    <p class='user_name'>{{auth()->user()->firstname}}</p>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button class="btn logout-button" type="submit">Odhlásiť</button>
+                    </form>
+                    
+                @else
+                    <li class="nav-item">
+                        <a href="login.html" class="btn login-button" type="submit">Prihlasenie</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('register')}}" class="btn register-button" type="submit">Registracia</a>
+                    </li>
+                @endauth
             
             </ul>
         

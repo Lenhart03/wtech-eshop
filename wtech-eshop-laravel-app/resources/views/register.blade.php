@@ -60,7 +60,7 @@
                 <p class="text-red-500 text-xs"> {{ $message }}</p>
             @enderror
             <input type="password" class="form-control" name="password" placeholder="Heslo" required value=""/>
-            @error('pword')
+            @error('password')
                 <p class="text-red-500 text-xs"> {{ $message }}</p>
             @enderror
             <input type="password" class="form-control" name="password_confirmation" placeholder="Potvrdiť heslo" required value=""/>

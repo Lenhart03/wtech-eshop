@@ -43,8 +43,10 @@
 }
 
 .logout-button {
+    width: 100%;
     background-color: var(--secondary-color);
     color: var(--background-color1);
+    justify-self: center;
 }
 
 .register-button {
@@ -112,3 +114,9 @@
     justify-content: center;
 }
 
+.user_name {
+    font-size: 20px;
+    margin-top: auto;
+    margin-right: 1rem;
+    align-self: center;
+}
