@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\shopping_cart;
 
 class RegisterController extends Controller
 {
@@ -38,13 +39,29 @@ class RegisterController extends Controller
         return redirect('/')->with('message', 'User logged out');
     }
 
+
     public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');
 
         if (auth()->attempt($credentials)) {
             $request->session()->regenerate();
+            session(['id' => auth()->id()]);
+
+            $cartItems = shopping_cart::where('user_id', auth()->id())->get();
+            if (!$cartItems->isEmpty()) {
+                $cart = [];
+                foreach ($cartItems as $item) {
+                    $cart[] = ['product_id' => $item->product_id, 'quantity' => $item->quantity];
+                }
+                session(['cart' => $cart]);
+            } else {
+                session(['cart' => []]);
+            }
+
             return redirect('/')->with('message', 'User logged in');
+        } else {
+            return redirect('/login')->with('error', 'Invalid credentials');
         }
     }
 }

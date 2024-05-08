@@ -12,9 +12,11 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav navbar-loginregister mb-2 mb-lg-0">
                 <li class="nav-item shoping-cart">
-                <a href="cart.html" id="cart-button" class="button navbar-cart" data-toggle="tooltip" data-placement="bottom" title="Košík">
+                <a href="{{route('cart')}}" id="cart-button" class="button navbar-cart" data-toggle="tooltip" data-placement="bottom" title="Košík">
                     <i class="material-icons">shopping_cart</i>
-                    <span id="items-in-cart" style="position:absolute; font-size: 16px; min-width: 45px; text-align: center; margin-right: 40px;">0</span>
+                    <span id="items-in-cart" style="position:absolute; font-size: 16px; min-width: 45px; text-align: center; margin-right: 40px;">
+                        {{ array_sum(array_column(session('cart', []), 'quantity')) }}
+                    </span>
                 </a>
                 </li>
 

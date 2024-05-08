@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\RegisterController;
+use Illuminate\Support\Facades\Log;
 
 /*
 |--------------------------------------------------------------------------
@@ -77,3 +78,44 @@ Route::get('/login', function () {
 })->name('login');
 
 Route::post('/login', [RegisterController::class, 'login']);
+
+Route::post('/add_to_cart', function () {
+    $product_id = request('product_id');
+    $quantity = request('quantity');
+
+    $cart = session()->get('cart', []);
+
+
+    if(isset($cart[$product_id])) {
+        $cart[$product_id]['quantity'] += $quantity;
+    } else {
+        $cart[$product_id] = [
+            'quantity' => $quantity,
+        ];
+    }
+
+
+    session()->put('cart', $cart);
+
+
+    $user_id = session('id');
+    Log::info('User ID: ' . $user_id);
+    if ($user_id) {
+        $db_cart = App\Models\shopping_cart::where('user_id', $user_id)->where('product_id', $product_id)->first();
+        if ($db_cart) {
+            $db_cart->quantity += $quantity;
+            $db_cart->save();
+        } else {
+            App\Models\shopping_cart::create(['user_id' => $user_id, 'product_id' => $product_id, 'quantity' => $quantity]);
+        }
+    }
+
+    return redirect()->back();
+})->name('add_to_cart');
+
+
+Route::get('/cart', function () {
+    $cart = session()->get('cart', []);
+    $products = App\Models\Product::whereIn('id', array_keys($cart))->get();
+    return view('cart', ['products' => $products, 'cart' => $cart]);
+})->name('cart');

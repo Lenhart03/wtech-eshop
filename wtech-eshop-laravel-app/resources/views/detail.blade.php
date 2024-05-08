@@ -49,22 +49,26 @@
                 </div>
                 @if($product->count > 0)
                     <div class="row" style="margin-top: 40px;">
-                        <div class="col-lg-3 col-md-3 col-sm-6">
-                            <p class="product-stock">{{$product->count}} ks</p>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6">
-                            <a class="product-number">
-                                <button id="decrement">-</button>
-                                <input type="number" id="number" value="1" min="1" max="{{$product->count}}" onchange="updatePrice(this,{{$product->price}})" readonly onkeydown="return false;">
-                                <button id="increment">+</button>
-                            </a>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6">
-                            <span class="product-price" id="price">{{$product->price}} €</span>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6">
-                            <a class="btn product-buy">Do košíka</a>
-                        </div>
+                        <form action="{{route('add_to_cart')}}" method="POST">
+                            @csrf
+                            <input type="hidden" name="product_id" value="{{ $product->id }}">
+                            <div class="col-lg-3 col-md-3 col-sm-6">
+                                <p class="product-stock">{{$product->count}} ks</p>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-6">
+                                <a class="product-number">
+                                    <button type="button" id="decrement">-</button>
+                                    <input type="number" id="quantity" name="quantity" value="1" min="1" max="{{$product->count}}" onchange="updatePrice(this,{{$product->price}})" readonly onkeydown="return false;">
+                                    <button type="button" id="increment">+</button>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-6">
+                                <span class="product-price" id="price">{{$product->price}} €</span>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-6">
+                                <button type="submit" class="btn product-buy">Do košíka</button>
+                            </div>
+                        </form>
                     </div>
                 @else
                 <div class="row" style="margin-top: 40px;">
@@ -107,7 +111,7 @@
         $(document).ready(function() {
             var decrementButton = $('#decrement');
             var incrementButton = $('#increment');
-            var numberField = $('#number');
+            var numberField = $('#quantity');
 
             var price = {!! json_encode($product->price) !!};
             var count = {!! json_encode($product->count) !!};
