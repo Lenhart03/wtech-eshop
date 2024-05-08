@@ -11,8 +11,8 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-    <link rel="stylesheet" href="{{ asset('resources/css/main.css') }}">
-    <link rel="stylesheet" href="{{ asset('resources/css/pages/products.css') }}">
+    @vite('resources/css/main.css')
+    @vite('resources/css/pages/products.css')
 </head>
 
 <body>
@@ -126,7 +126,7 @@
                         <div class="col-lg-3 col-md-6 col-sm-12">
                                 <div class="product">
                                     <a href="{{ route('detail', ['id' => $product->id]) }}">
-                                        <img src="{{ asset('storage/app/public/dbimages/'.$product->images->first()->image) }}" class="thumbnail">
+                                        <img src="{{ asset('dbimages/'.$product->images->first()->image) }}" class="thumbnail">
                                     </a>
                                     <p class="product-name">{{$product->name}}</p>
                                     <div class="row">

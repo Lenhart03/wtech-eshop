@@ -12,8 +12,9 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-    <link rel="stylesheet" href="{{asset('resources/css/main.css') }}">
-    <link rel="stylesheet" href="{{asset('resources/css/pages/contact.css') }}">
+
+    @vite('resources/css/main.css')
+    @vite('resources/css/pages/contact.css')
 </head>
 
 <body>

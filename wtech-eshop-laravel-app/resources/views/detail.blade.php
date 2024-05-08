@@ -12,8 +12,9 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-    <link rel="stylesheet" href="{{asset('resources/css/main.css') }}">
-    <link rel="stylesheet" href="{{asset('resources/css/pages/detail.css')}}">
+
+    @vite('resources/css/main.css')
+    @vite('resources/css/pages/detail.css')
 </head>
 
 <body>
@@ -24,14 +25,14 @@
             <div class="col-lg-5 col-md-12 col-sm-12 gallery">
                 @if($product->images->isNotEmpty())
                     <div class="main-image">
-                        <img class="d-block mx-auto" src="{{ asset('storage/app/public/dbimages/' . $product->images->first()->image) }}" alt="main">
+                        <img class="d-block mx-auto" src="{{ asset('dbimages/' . $product->images->first()->image) }}" alt="main">
                     </div>
                     @for($i = 0; $i < count($product->images); $i++)
                         @if($i % 4 == 0)
                             <div class="row gallery-images">
                         @endif
                         <div class="col">
-                            <img class="square-images d-block mx-auto" src="{{ asset('storage/app/public/dbimages/' . $product->images[$i]->image) }}" alt="gallery">
+                            <img class="square-images d-block mx-auto" src="{{ asset('dbimages/' . $product->images[$i]->image) }}" alt="gallery">
                         </div>
                         @if($i % 4 == 3 || $i == count($product->images) - 1)
                             </div>

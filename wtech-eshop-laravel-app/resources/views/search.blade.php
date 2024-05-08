@@ -12,8 +12,8 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
-    <link rel="stylesheet" href="{{asset('resources/css/pages/search.css')}}">
-    <link rel="stylesheet" href="{{asset('resources/css/main.css')}}">
+    @vite('resources/css/main.css')
+    @vite('resources/css/pages/search.css')
 </head>
 <body>
     @include('components.navbar')
@@ -26,7 +26,7 @@
                 <div class="product-item">
                     <a href="{{ route('detail', ['id' => $product->id]) }}">
                         <div id="thumbnail">
-                            <img src="{{ asset('storage/app/public/dbimages/'.$product->images->first()->image) }}" />
+                            <img src="{{ asset('dbimages/'.$product->images->first()->image) }}" />
                         </div>
                         <div id="other">
                             <div class="info">

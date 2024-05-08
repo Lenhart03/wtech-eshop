@@ -12,8 +12,8 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-    <link rel="stylesheet" href="{{asset('resources/css/main.css') }}">
-    <link rel="stylesheet" href="{{asset('resources/css/pages/about.css') }}">
+    @vite('resources/css/main.css')
+    @vite('resources/css/pages/about.css')
 </head>
 
 <body>

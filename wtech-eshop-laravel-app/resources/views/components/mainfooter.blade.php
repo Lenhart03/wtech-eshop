@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="{{ asset('resources/css/components/main_footer.css') }}">
+@vite('resources/css/components/main_footer.css')
 
 <div class="main-footer">
     <a href="{{ route('contact') }}" class="side" id="contact">KONTAKTY</a>

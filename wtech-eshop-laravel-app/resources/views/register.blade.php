@@ -13,8 +13,9 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
-    <link rel="stylesheet" href="{{ asset('resources/css/pages/register.css')}}">
-    <link rel="stylesheet" href="{{ asset('resources/css/main.css') }}">
+
+    @vite('resources/css/main.css')
+    @vite('resources/css/pages/register.css')
 </head>
 <body>
     @include('components.navbar')
