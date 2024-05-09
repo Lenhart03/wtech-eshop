@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +54,7 @@ Route::get('/contact', function () {
 
 
 use App\Filters\ProductFilters;
+use App\Http\Controllers\PaymentController;
 
 Route::get('/category/{category}', function ($category, ProductFilters $filters) {
     $query = App\Models\Product::where('category', $category);
@@ -85,14 +87,18 @@ Route::post('/add_to_cart', function () {
 
     $cart = session()->get('cart', []);
 
+    $product_index = array_search($product_id, array_column($cart, 'product_id'));
 
-    if(isset($cart[$product_id])) {
-        $cart[$product_id]['quantity'] += $quantity;
+    if ($product_index !== false) {
+        $cart[$product_index]['quantity'] += $quantity;
     } else {
-        $cart[$product_id] = [
+        $cart[] = [
+            'product_id' => $product_id,
             'quantity' => $quantity,
         ];
     }
+
+    session()->put('cart', $cart);
 
 
     session()->put('cart', $cart);
@@ -103,19 +109,72 @@ Route::post('/add_to_cart', function () {
     if ($user_id) {
         $db_cart = App\Models\shopping_cart::where('user_id', $user_id)->where('product_id', $product_id)->first();
         if ($db_cart) {
-            $db_cart->quantity += $quantity;
-            $db_cart->save();
+            App\Models\shopping_cart::where('user_id', $user_id)
+                ->where('product_id', $product_id)
+                ->update(['quantity' => $db_cart->quantity + $quantity]);
         } else {
             App\Models\shopping_cart::create(['user_id' => $user_id, 'product_id' => $product_id, 'quantity' => $quantity]);
         }
     }
-
     return redirect()->back();
 })->name('add_to_cart');
 
 
+
 Route::get('/cart', function () {
     $cart = session()->get('cart', []);
-    $products = App\Models\Product::whereIn('id', array_keys($cart))->get();
-    return view('cart', ['products' => $products, 'cart' => $cart]);
+    $products = [];
+    foreach ($cart as $item) {
+        $productId = $item['product_id'];
+        $product = App\Models\Product::find($productId);
+
+        $products[] = ['product'=>$product,'quantity'=>$item['quantity']];
+    }
+
+    return view('cart', ['products' => $products]);
 })->name('cart');
+
+Route::post('/update_cart', function () {
+    $product_id = request('product_id');
+    $quantity = request('quantity');
+
+    $cart = session()->get('cart', []);
+
+    $product_index = array_search($product_id, array_column($cart, 'product_id'));
+
+    if ($product_index !== false and $quantity > 0) {
+        $cart[$product_index]['quantity'] = $quantity;
+    } elseif ($product_index !== false and $quantity == 0) {
+        unset($cart[$product_index]);
+    }
+
+    session()->put('cart', $cart);
+
+    $user_id = session('id');
+    if ($user_id and $quantity > 0) {
+        App\Models\shopping_cart::where('user_id', $user_id)
+            ->where('product_id', $product_id)
+            ->update(['quantity' => $quantity]);
+    }elseif ($user_id and $quantity == 0) {
+        App\Models\shopping_cart::where('user_id', $user_id)
+            ->where('product_id', $product_id)
+            ->delete();
+    }
+
+    return redirect()->back();
+})->name('update_cart');
+
+
+Route::get('/order', function () {
+    return view('order');
+});
+
+
+Route::post('/order/payment', [PaymentController::class, 'payment']);
+
+Route::post('payment/confirmation', [PaymentController::class,'store']);
+
+Route::get('/order/confirmation', function () {
+    return view('confirmation');
+});
+

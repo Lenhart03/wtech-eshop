@@ -48,8 +48,9 @@
                     <p class="product-description">{{$product->description}}</p>
                 </div>
                 @if($product->count > 0)
+                <form action="{{route('add_to_cart')}}" method="POST">
                     <div class="row" style="margin-top: 40px;">
-                        <form action="{{route('add_to_cart')}}" method="POST">
+                        
                             @csrf
                             <input type="hidden" name="product_id" value="{{ $product->id }}">
                             <div class="col-lg-3 col-md-3 col-sm-6">
@@ -68,8 +69,8 @@
                             <div class="col-lg-3 col-md-3 col-sm-6">
                                 <button type="submit" class="btn product-buy">Do košíka</button>
                             </div>
-                        </form>
                     </div>
+                </form>
                 @else
                 <div class="row" style="margin-top: 40px;">
                     <div class="col-lg-3 col-md-3 col-sm-6">

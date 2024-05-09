@@ -22,25 +22,37 @@
 
         <div id="content">
             <table class="container" id="cart-items" style="display: table;">
+                
                 @foreach($products as $product)
                     <tbody>
                         <tr class="cart-item">
-                            <td><a href="/product?id=6">{{$product->name}}</a></td>
+                            <td><a href="{{ route('detail', ['id' => $product['product']->id]) }}">{{$product['product']->name}}</a></td>
                             <td id="count-and-price">
-                                <input type="number" id="count" min="1" value={{$cart[$product->id]}} onchange="updateCartItemPrice(this, 690, 6)">
-                                <span id="price">{{$product->price}} €</span>
+                                <form method="POST" action="/update_cart">
+                                    @csrf
+                                    <input type="hidden" name="product_id" value="{{$product['product']->id}}">
+                                    <input type="number" name="quantity" min="1" value="{{$product['quantity']}}" onchange="this.form.submit()">
+                                </form>
+                                <span id="price">{{$product['product']->price * $product['quantity']}} €</span>
                             </td>
                             <td>
-                                <a class="material-icons" style="cursor: pointer;" onclick="deleteCartItem(this, 6)" data-toggle="tooltip" data-placement="left" title="Odstrániť">delete</a>
+                                <form method="POST" action="/update_cart">
+                                    @csrf
+                                    <input type="hidden" name="product_id" value="{{$product['product']->id}}">
+                                    <input type="hidden" name="quantity" value="0">
+                                    <a class="material-icons" style="cursor: pointer;" onclick="this.parentNode.submit()" data-toggle="tooltip" data-placement="left" title="Odstrániť">delete</a>
+                                </form>
                             </td>
                         </tr>
                     </tbody>
                 @endforeach
-                
             </table>
             <div id="bottom">
-                <span class="button" id="empty-cart-button" onclick="emptyCart()">Vyprázdniť košík</span>
-                <a href="order.html"><span class="button" id="buy-button">Kúpiť</span></a>
+                <form method="GET" action="/order">
+                    @csrf
+                    <input type="hidden" name="products" value="{{ json_encode($products) }}">
+                    <button type="submit" class="button" id="buy-button">Kúpiť</button>
+                </form>
             </div>
         </div>
         <style>
@@ -48,11 +60,7 @@
                 display: table;
             }
         </style>
-        <script>
-            $(document).ready(function() {
-                $("body").tooltip({ selector: '[data-toggle=tooltip]' }).tooltip({ container: 'body' });
-            });
-        </script>
+
     
     @include('components.mainfooter')
 </body>
