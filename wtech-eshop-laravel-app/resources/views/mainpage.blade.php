@@ -23,7 +23,6 @@
     @php
         $firstProduct = $products->shift();
     @endphp
-    
     <div class="featured">
         <ul class="cards cards-action">
             <li class="cards_item">
