@@ -47,3 +47,8 @@ npm install
 ```
 npm run dev
 ```
+
+10. Run web server
+```
+php artisan serve
+```
