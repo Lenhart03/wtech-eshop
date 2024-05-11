@@ -28,7 +28,7 @@ DB_PASSWORD=a1b2c3d4
 php artisan key:generate
 ```
 
-6. Create link for the storage
+6. Link the storage
 ```
 php artisan storage:link
 ```
@@ -38,12 +38,12 @@ php artisan storage:link
 php artisan migrate
 ```
 
-8. Run command npm installation
+8. Run npm installation
 ```
 npm install
 ```
 
-9. Run command "npm run dev" in parallel terminal
+9. Run following command in parallel terminal
 ```
 npm run dev
 ```
