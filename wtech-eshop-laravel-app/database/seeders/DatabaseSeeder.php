@@ -16,14 +16,14 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
-    
+
     public function run()
     {
         $products = Product::factory(200)->create();
 
         foreach ($products as $product) {
             $descriptionArray = explode(',', $product->description);
-            
+
             switch ($product->category) {
                 case 'CPU':
                     $arr=['AM4', 'LGA1200', 'LGA1151', 'TR4'];
@@ -202,7 +202,7 @@ class DatabaseSeeder extends Seeder
                         ['image'=>'computer-8129434_1280.jpg'],
                     ];
                     break;
-                
+
             }
 
             foreach ($parameters as $parameter) {

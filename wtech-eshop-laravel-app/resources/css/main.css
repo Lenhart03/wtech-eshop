@@ -4,7 +4,7 @@
     --background-color1: #ffffff;
     --background-color2: #eeeeee;
     --background-color3: #cccccc;
-    
+
     --foreground-color1: #000000;
     --foreground-color2: #222222;
     --foreground-color3: #444444;
@@ -122,6 +122,10 @@ img {
     transition: 300ms;
 }
 
+.material-symbols-outlined, .material-icons {
+    user-select: none;
+}
+
 .pagination{
     margin: 20px auto;
     flex-wrap: wrap;
@@ -130,6 +134,19 @@ img {
     color: #ffffff;
     background-color: #555555;
     cursor: pointer;
+}
+
+.text-red-500 {
+    color: rgb(239 68 68);
+}
+
+.user_name {
+    padding: 12px 0;
+    margin: 0;
+}
+
+input[type=number] {
+    border: 1px solid #bbb;
 }
 
 ::-webkit-scrollbar {
@@ -153,7 +170,7 @@ img {
 /* Larger than mobile */
 @media (min-width: 400px) {
 
-    
+
 
 }
 

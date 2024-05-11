@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ProductController;
+use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 
@@ -22,7 +24,7 @@ use Illuminate\Http\Request;
 Route::get('/', function () {
     $products = App\Models\Product::with('images')->paginate(19);
     return view('mainpage', ['products' => $products]);
-});
+})->name('mainpage');
 
 Route::get('/detail/{id}', function ($id) {
     $product = App\Models\Product::with('images','parameters')->find($id);
@@ -55,6 +57,8 @@ Route::get('/contact', function () {
 
 use App\Filters\ProductFilters;
 use App\Http\Controllers\PaymentController;
+use App\Models\Product;
+use App\Models\user;
 
 Route::get('/category/{category}', function ($category, ProductFilters $filters) {
     $query = App\Models\Product::where('category', $category);
@@ -107,13 +111,13 @@ Route::post('/add_to_cart', function () {
     $user_id = session('id');
     Log::info('User ID: ' . $user_id);
     if ($user_id) {
-        $db_cart = App\Models\shopping_cart::where('user_id', $user_id)->where('product_id', $product_id)->first();
+        $db_cart = App\Models\ShoppingCart::where('user_id', $user_id)->where('product_id', $product_id)->first();
         if ($db_cart) {
-            App\Models\shopping_cart::where('user_id', $user_id)
+            App\Models\ShoppingCart::where('user_id', $user_id)
                 ->where('product_id', $product_id)
                 ->update(['quantity' => $db_cart->quantity + $quantity]);
         } else {
-            App\Models\shopping_cart::create(['user_id' => $user_id, 'product_id' => $product_id, 'quantity' => $quantity]);
+            App\Models\ShoppingCart::create(['user_id' => $user_id, 'product_id' => $product_id, 'quantity' => $quantity]);
         }
     }
     return redirect()->back();
@@ -152,11 +156,11 @@ Route::post('/update_cart', function () {
 
     $user_id = session('id');
     if ($user_id and $quantity > 0) {
-        App\Models\shopping_cart::where('user_id', $user_id)
+        App\Models\ShoppingCart::where('user_id', $user_id)
             ->where('product_id', $product_id)
             ->update(['quantity' => $quantity]);
-    }elseif ($user_id and $quantity == 0) {
-        App\Models\shopping_cart::where('user_id', $user_id)
+    } elseif ($user_id and $quantity == 0) {
+        App\Models\ShoppingCart::where('user_id', $user_id)
             ->where('product_id', $product_id)
             ->delete();
     }
@@ -172,9 +176,25 @@ Route::get('/order', function () {
 
 Route::post('/order/payment', [PaymentController::class, 'payment']);
 
-Route::post('payment/confirmation', [PaymentController::class,'store']);
+Route::post('payment/confirmation', [PaymentController::class, 'store']);
 
 Route::get('/order/confirmation', function () {
     return view('confirmation');
 });
 
+
+Route::get('/admin', function () {
+    if (!auth()->user())
+        return redirect()->route('login');
+
+    if (auth()->user()['user_group'] == 'admin')
+        return view('admin');
+
+    return redirect()->route('mainpage');
+});
+
+
+Route::get('/product/{id}', [ProductController::class, 'fetch']);
+Route::post('/product/create', [ProductController::class, 'store']);
+Route::post('/product/update', [ProductController::class, 'update_product']);
+Route::get('/product/remove/{id}', [ProductController::class, 'remove']);

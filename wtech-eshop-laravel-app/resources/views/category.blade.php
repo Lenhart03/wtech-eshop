@@ -115,7 +115,7 @@
                     </div>
                 </form>
             </div>
-            
+
             <div class="col-lg-9">
 
                 @include('components.categories')
@@ -126,7 +126,7 @@
                         <div class="col-lg-3 col-md-6 col-sm-12">
                                 <div class="product">
                                     <a href="{{ route('detail', ['id' => $product->id]) }}">
-                                        <img src="{{ asset('dbimages/'.$product->images->first()->image) }}" class="thumbnail">
+                                        <img src="{{ asset('storage/dbimages/'.$product->images->first()->image) }}" class="thumbnail">
                                     </a>
                                     <p class="product-name">{{$product->name}}</p>
                                     <div class="row">
@@ -144,7 +144,7 @@
             </div>
         </div>
     </div>
-    
+
     @include('components.mainfooter')
 
 </body>

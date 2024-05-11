@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\shopping_cart;
+use App\Models\ShoppingCart;
 
 class RegisterController extends Controller
 {
@@ -48,7 +48,7 @@ class RegisterController extends Controller
             $request->session()->regenerate();
             session(['id' => auth()->id()]);
 
-            $cartItems = shopping_cart::where('user_id', auth()->id())->get();
+            $cartItems = ShoppingCart::where('user_id', auth()->id())->get();
             if (!$cartItems->isEmpty()) {
                 $cart = [];
                 foreach ($cartItems as $item) {
@@ -58,6 +58,9 @@ class RegisterController extends Controller
             } else {
                 session(['cart' => []]);
             }
+
+            if (auth()->user()['user_group'] == 'admin')
+                return redirect('/admin');
 
             return redirect('/')->with('message', 'User logged in');
         } else {

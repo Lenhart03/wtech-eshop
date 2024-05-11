@@ -19,7 +19,7 @@ class ProductFactory extends Factory
      *
      * @return array
      */
-    
+
     public function definition()
     {
         $brands = ['AMD', 'Intel', 'GIGABYTE', 'NZXT', 'Asus','MSI',
@@ -36,7 +36,7 @@ class ProductFactory extends Factory
         $productBrand = $this->faker->randomElement($brands);
         $productName = $this->getName($productType, $productBrand);
         $description = $this->getDescription($productType, $productBrand);
-        
+
 
         return [
             'name' => $productName,
@@ -53,7 +53,7 @@ class ProductFactory extends Factory
         $productName = $productType;
 
 
-        
+
         switch ($productName) {
             case 'CPU':
                 if ($productBrand == 'Intel') {
@@ -90,12 +90,12 @@ class ProductFactory extends Factory
     {
         switch ($productName) {
             case 'CPU':
-                return 'Processor ' . $this->faker->numberBetween(1, 64) . '-jadrový, ' . 
+                return 'Processor ' . $this->faker->numberBetween(1, 64) . '-jadrový, ' .
                 $this->faker->numberBetween(1, 128) . ' vlákien, ' . $this->faker->randomFloat(2, 1, 5) . ' GHz, '.
                 $this->faker->randomFloat(2,1,5).' GHz boost, ' . $this->faker->numberBetween(1, 64) . ' MB L3 cache, '.
                 $this->faker->randomElement(['Bez integrovaného grafického čipu', 'S integrovaným grafickým čipom']);
             case 'GPU':
-                return 'Grafická karta - ' . $this->faker->numberBetween(2, 16) . 'GB VRAM ' . 
+                return 'Grafická karta - ' . $this->faker->numberBetween(2, 16) . 'GB VRAM ' .
                 $this->faker->randomElement(['GDDR5', 'GDDR6']) . ' (' .
                 $this->faker->numberBetween(5000,30000).' MHz)';
             case 'Motherboard':
@@ -123,5 +123,5 @@ class ProductFactory extends Factory
                 return $this->faker->sentence;
         }
     }
-    
+
 }

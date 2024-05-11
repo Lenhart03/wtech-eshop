@@ -27,7 +27,7 @@
         <ul class="cards cards-action">
             <li class="cards_item">
                 <div class="card">
-                    <div class="card_image"><a href="{{ route('detail', ['id' => $firstProduct->id]) }}"><img src="{{ asset('dbimages/'.$firstProduct->images->first()->image) }}"></a></div>
+                    <div class="card_image"><a href="{{ route('detail', ['id' => $firstProduct->id]) }}"><img src="{{ asset('storage/dbimages/'.$firstProduct->images->first()->image) }}"></a></div>
                     <div class="card_content">
                         <h2 class="card_title">
                             <a class="card_title" href="{{ route('detail', ['id' => $firstProduct->id]) }}">
@@ -44,13 +44,13 @@
             </li>
         </ul>
     </div>
-    
+
     <div id="featured" class="container">
         <div class="row g-3">
             @foreach ($products as $product)
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="card">
-                        <div class="card_image"><a href="{{ route('detail', ['id' => $product->id]) }}"><img src="{{ asset('dbimages/'.$product->images->first()->image) }}"></a></div>
+                        <div class="card_image"><a href="{{ route('detail', ['id' => $product->id]) }}"><img src="{{ asset('storage/dbimages/'.$product->images->first()->image) }}"></a></div>
                         <div class="card_content">
                             <h2 class="card_title">
                                 <a class="card_title" href="{{ route('detail', ['id' => $product->id]) }}">
@@ -73,7 +73,7 @@
         {{ $products->links() }}
     </nav>
 
-      
+
     @include('components.mainfooter')
 
 </body>

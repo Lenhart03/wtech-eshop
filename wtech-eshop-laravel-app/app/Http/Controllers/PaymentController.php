@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
-use App\Models\shopping_cart;
-use App\Models\orders;
-use App\Models\order_products;
+use App\Models\ShoppingCart;
+use App\Models\Order;
+use App\Models\OrderProduct;
 use Illuminate\Support\Facades\Auth;
 
 class PaymentController extends Controller
@@ -28,15 +28,15 @@ class PaymentController extends Controller
     public function store(Request $request){
         $cart = session()->get('cart', []);
         $user_id = Auth::id();
-        
 
-        $order = orders::create([
+
+        $order = Order::create([
             'user_id' => $user_id,
             'time_ordered'=> now(),
             'state' => 'new',
             'firstname' => $request->meno,
             'lastname' => $request->priezvisko,
-            'transport' => $request->sposob_dopravy,
+            'transport_type' => $request->sposob_dopravy,
             'street_name' => $request->ulica,
             'zip_code' => $request->psc,
             'phone_number' => $request->telefon,
@@ -48,15 +48,15 @@ class PaymentController extends Controller
             $product = Product::find($productId);
 
 
-            order_products::create([
+            OrderProduct::create([
                 'order_id' => $order->id,
                 'product_id' => $productId,
                 'count' => $item['quantity'],
-                
+
             ]);
         }
 
-        shopping_cart::where('user_id', $user_id)->delete();
+        ShoppingCart::where('user_id', $user_id)->delete();
 
         session()->put('cart', []);
 

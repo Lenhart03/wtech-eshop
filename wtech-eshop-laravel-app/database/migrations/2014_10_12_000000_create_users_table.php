@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('lastname');
             $table->string('email')->unique();
             $table->string('password');
+            $table->timestamp('created_at');
             $table->enum('user_group', ['basic', 'admin']);
         });
 

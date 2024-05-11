@@ -19,20 +19,20 @@
 
 <body>
     @include('components.navbar')
-    
+
     <div class="container" style="margin-top: 20px;">
         <div class="row">
             <div class="col-lg-5 col-md-12 col-sm-12 gallery">
                 @if($product->images->isNotEmpty())
                     <div class="main-image">
-                        <img class="d-block mx-auto" src="{{ asset('dbimages/' . $product->images->first()->image) }}" alt="main">
+                        <img class="d-block mx-auto" src="{{ asset('storage/dbimages/' . $product->images->first()->image) }}" alt="main">
                     </div>
                     @for($i = 0; $i < count($product->images); $i++)
                         @if($i % 4 == 0)
                             <div class="row gallery-images">
                         @endif
                         <div class="col">
-                            <img class="square-images d-block mx-auto" src="{{ asset('dbimages/' . $product->images[$i]->image) }}" alt="gallery">
+                            <img class="square-images d-block mx-auto" src="{{ asset('storage/dbimages/' . $product->images[$i]->image) }}" alt="gallery">
                         </div>
                         @if($i % 4 == 3 || $i == count($product->images) - 1)
                             </div>
@@ -48,9 +48,8 @@
                     <p class="product-description">{{$product->description}}</p>
                 </div>
                 @if($product->count > 0)
-                <form action="{{route('add_to_cart')}}" method="POST">
                     <div class="row" style="margin-top: 40px;">
-                        
+                        <form action="{{route('add_to_cart')}}" method="POST">
                             @csrf
                             <input type="hidden" name="product_id" value="{{ $product->id }}">
                             <div class="col-lg-3 col-md-3 col-sm-6">
@@ -69,8 +68,8 @@
                             <div class="col-lg-3 col-md-3 col-sm-6">
                                 <button type="submit" class="btn product-buy">Do košíka</button>
                             </div>
+                        </form>
                     </div>
-                </form>
                 @else
                 <div class="row" style="margin-top: 40px;">
                     <div class="col-lg-3 col-md-3 col-sm-6">
@@ -103,7 +102,7 @@
     </div>
 
 
-    
+
     @include('components.mainfooter')
 
 
@@ -146,7 +145,7 @@
     </script>
     <script>/*Script na highlightovanie a vymenu obrazku*/
         var squareImages = document.querySelectorAll('.square-images');
-        
+
         var firstSquareImage = squareImages[0];
         var mainImage = document.querySelector('.main-image img');
         mainImage.src = firstSquareImage.src;
@@ -157,11 +156,11 @@
                 var clickedImageSrc = event.target.src;
                 var mainImage = document.querySelector('.main-image img');
                 mainImage.src = clickedImageSrc;
-    
+
                 for (var j = 0; j < squareImages.length; j++) {
                     squareImages[j].classList.remove('highlight');
                 }
-    
+
                 event.target.classList.add('highlight');
             });
         }

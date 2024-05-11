@@ -11,17 +11,17 @@
     <meta charset="utf-8">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    
+
 
     @vite('resources/css/main.css')
     @vite('resources/css/pages/register.css')
 </head>
 <body>
     @include('components.navbar')
-    
+
     <script>
         $(document).ready(function(){
-            $('[data-toggle="tooltip"]').tooltip();   
+            $('[data-toggle="tooltip"]').tooltip();
         });
         let cart = JSON.parse(localStorage.getItem("cart_products"));
         if (cart) {
@@ -31,7 +31,7 @@
             document.querySelector("#items-in-cart").innerHTML = items_in_cart;
         }
     </script>
-    
+
     <div id="errors">
         <div class="container">
         </div>

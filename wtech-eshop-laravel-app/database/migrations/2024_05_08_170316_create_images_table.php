@@ -13,6 +13,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('images', function (Blueprint $table) {
+            $table->id();
             $table->integer('product_id');
             $table->string('image', 256); // filename
         });

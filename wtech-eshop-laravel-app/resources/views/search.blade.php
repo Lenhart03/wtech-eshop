@@ -11,7 +11,7 @@
     <meta charset="utf-8">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    
+
     @vite('resources/css/main.css')
     @vite('resources/css/pages/search.css')
 </head>
@@ -26,7 +26,7 @@
                 <div class="product-item">
                     <a href="{{ route('detail', ['id' => $product->id]) }}">
                         <div id="thumbnail">
-                            <img src="{{ asset('dbimages/'.$product->images->first()->image) }}" />
+                            <img src="{{ asset('storage/dbimages/'.$product->images->first()->image) }}" />
                         </div>
                         <div id="other">
                             <div class="info">
