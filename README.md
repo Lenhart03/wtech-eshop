@@ -49,7 +49,7 @@ php artisan migrate
 npm install
 ```
 
-9. Run following command to build vite manifest
+9. Run following command to build vite
 ```
 npm run build
 ```
