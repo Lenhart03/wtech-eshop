@@ -1,5 +1,5 @@
 .square-images {
-    width: 80%;
+    max-width: 70px;
     aspect-ratio: 1/1;
     object-fit: cover;
     margin: 5px auto;
