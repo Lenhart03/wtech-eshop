@@ -1,5 +1,6 @@
 ### Prerequisites
 - PHP
+- Composer
 - Database Server
 - Node.js
 
