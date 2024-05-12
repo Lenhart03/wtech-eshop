@@ -105,7 +105,7 @@
             </form>
         </div>
     </div>
-      
+
     @include('components.mainfooter')
 
 </body>

@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('firstname', 64);
             $table->string('lastname', 64);
             $table->enum('transport_type', ['balikomat','kurier','pobocka']);
-            $table->string('street_name', 64);
-            $table->integer('zip_code');
+            $table->string('street_name', 64)->nullable();
+            $table->integer('zip_code')->nullable();
             $table->string('phone_number', 16);
             $table->enum('payment', ['kartou','dobierkou']);
         });
