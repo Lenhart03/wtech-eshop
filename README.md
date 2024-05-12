@@ -1,3 +1,8 @@
+### Prerequisites
+- PHP
+- Database Server
+- Node.js
+
 # Instructions
 
 1. Clone repository
@@ -43,12 +48,12 @@ php artisan migrate
 npm install
 ```
 
-9. Run following command in parallel terminal
+9. Run following command to build vite manifest
 ```
-npm run dev
+npm run build
 ```
 
-10. Run web server
+10.  Run web server
 ```
 php artisan serve
 ```
