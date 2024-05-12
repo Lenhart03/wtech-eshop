@@ -192,3 +192,11 @@
 .button-danger:hover {
     background-color: #ff8888;
 }
+
+select {
+    border: 1px solid #aaaaaa;
+    padding: 0.5px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 11px;
+}

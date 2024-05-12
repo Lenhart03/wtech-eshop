@@ -289,10 +289,19 @@
                                             <label for="count">Počet:</label>
                                             <input required type="number" name="count" min="0" step="1" class="form-control" id="count" value="0" style="width: 100px;">
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="search_keys">Kľúče na vyhľadávanie:</label>
-                                        <input required type="text" name="search_keys" maxlength="64" class="form-control" id="search_keys">
+                                        <div class="form-group">
+                                            <label for="category">Kategória:</label><br>
+                                            <select name="category" id="category">
+                                                <option value="CPU">CPU</option>
+                                                <option value="Motherboard">Motherboard</option>
+                                                <option value="disk">disk</option>
+                                                <option value="case">case</option>
+                                                <option value="ram">ram</option>
+                                                <option value="GPU">GPU</option>
+                                                <option value="cooler">cooler</option>
+                                                <option value="power supply">power supply</option>
+                                              </select>
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="brand">Značka:</label>
@@ -409,10 +418,19 @@
                                             <label for="count">Počet:</label>
                                             <input required type="number" name="count" min="0" step="1" class="form-control" id="count" value="0" style="width: 100px;">
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="search_keys">Kľúče na vyhľadávanie:</label>
-                                        <input required type="text" name="search_keys" maxlength="64" class="form-control" id="search_keys">
+                                        <div class="form-group">
+                                            <label for="category">Kategória:</label><br>
+                                            <select name="category" id="category">
+                                                <option value="CPU">CPU</option>
+                                                <option value="Motherboard">Motherboard</option>
+                                                <option value="disk">disk</option>
+                                                <option value="case">case</option>
+                                                <option value="ram">ram</option>
+                                                <option value="GPU">GPU</option>
+                                                <option value="cooler">cooler</option>
+                                                <option value="power supply">power supply</option>
+                                              </select>
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="brand">Značka:</label>
@@ -516,7 +534,7 @@ function edit(span) {
         form.querySelector("#description").value = data.description;
         form.querySelector("#price").value = data.price;
         form.querySelector("#count").value = data.count;
-        form.querySelector("#search_keys").value = data.search_keys;
+        form.querySelector("#category").value = data.category;
         form.querySelector("#brand").value = data.brand;
 
         let gallery = document.querySelector("#EditProductForm .gallery");

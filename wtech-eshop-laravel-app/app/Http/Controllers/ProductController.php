@@ -19,7 +19,7 @@ class ProductController extends Controller
             'description' => $request->input('description'),
             'price' => $request->input('price'),
             'count' => $request->input('count'),
-            'search_keys' => $request->input('search_keys'),
+            'category' => $request->input('category'),
             'brand' => $request->input('brand'),
         ]);
 
@@ -63,7 +63,7 @@ class ProductController extends Controller
         $product->description = $request->input('description');
         $product->price = $request->input('price');
         $product->count = $request->input('count');
-        $product->search_keys = $request->input('search_keys');
+        $product->category = $request->input('category');
         $product->brand = $request->input('brand');
         $product->save();
 
