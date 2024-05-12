@@ -11,14 +11,14 @@
     <meta charset="utf-8">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    
+
     @vite('resources/css/main.css')
     @vite('resources/css/pages/login.css')
 </head>
 <body>
     @include('components/navbar')
 
-    <div style="height: calc(100vh - 80px - 72px - 40px);" id="content">
+    <div style="min-height: calc(100vh - 80px - 72px - 40px - 20px);" id="content">
         <form action="login" method="POST" id="login-form">
             @csrf
             <h1>Prihlásenie</h1>

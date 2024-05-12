@@ -11,7 +11,7 @@
     <meta charset="utf-8">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    
+
 
     @vite('resources/css/main.css')
     @vite('resources/css/pages/cart.css')
@@ -19,9 +19,9 @@
 <body>
     @include('components.navbar')
 
-        <div id="content">
+        <div id="content" style="min-height: calc(100vh - 80px - 72px - 40px);">
             <table class="container" id="cart-items" style="display: table;">
-                
+
                 @foreach($products as $product)
                     <tbody>
                         <tr class="cart-item">
@@ -50,7 +50,9 @@
                 <form method="GET" action="/order">
                     @csrf
                     <input type="hidden" name="products" value="{{ json_encode($products) }}">
-                    <button type="submit" class="button" id="buy-button">Kúpiť</button>
+                    @if (count($products) > 0)
+                        <button type="submit" class="button" id="buy-button">Kúpiť</button>
+                    @endif
                 </form>
             </div>
         </div>
@@ -60,7 +62,7 @@
             }
         </style>
 
-    
+
     @include('components.mainfooter')
 </body>
 </html>

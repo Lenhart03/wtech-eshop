@@ -37,7 +37,7 @@
         </div>
     </div>
 
-    <div class="container" id="content">
+    <div class="container" id="content" style="min-height: calc(100vh - 80px - 72px - 40px - 20px);">
         <form action="register" method="POST" id="register-form">
             @csrf
             <h1>Registrácia</h1>
